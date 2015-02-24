@@ -4,12 +4,14 @@ dataDict_uid = {} # dividing based on users
 dataDict_cid = {} #dividing based on course
 def createDictionary():
 	with open('Harvard-MITdataset.csv') as fp:
-		next(fp)
+		next(fp) #ignore line 1 (header)
 		counter = 0
 		for line in fp:
 			lineSplit = line.split(",")
 			course = ()
+			#based on userId
 			value = {'course':lineSplit[0],'registered':lineSplit[2],'viewed':lineSplit[3],'explored':lineSplit[4],'certified':lineSplit[5],'final_cc_cname_DI':lineSplit[6],'LoE_DI':lineSplit[7],'YoB':lineSplit[8],'gender':lineSplit[9],'grade':lineSplit[10],'start_time_DI':lineSplit[11],'last_event_DI':lineSplit[12],'nevents':lineSplit[13],'ndays_act':lineSplit[14],'nplay_video':lineSplit[15],'nchapters':lineSplit[16],'nforum_posts':lineSplit[17],'roles':lineSplit[18],'incomplete_flag':lineSplit[19]}
+			#based on courseId
 			value_cid = {'user':lineSplit[1],'registered':lineSplit[2],'viewed':lineSplit[3],'explored':lineSplit[4],'certified':lineSplit[5],'final_cc_cname_DI':lineSplit[6],'LoE_DI':lineSplit[7],'YoB':lineSplit[8],'gender':lineSplit[9],'grade':lineSplit[10],'start_time_DI':lineSplit[11],'last_event_DI':lineSplit[12],'nevents':lineSplit[13],'ndays_act':lineSplit[14],'nplay_video':lineSplit[15],'nchapters':lineSplit[16],'nforum_posts':lineSplit[17],'roles':lineSplit[18],'incomplete_flag':lineSplit[19]}
 			
 			if lineSplit[1] in dataDict_uid:
@@ -35,7 +37,7 @@ def createDictionary():
 
 def getUserAgeInDataset():
 	for key, value in dataDict_cid.iteritems() :
-		print key
+		print "For course:"+str(key),
 		yob = 0;
 		countYob = 0;
 		for val in value:
@@ -46,7 +48,8 @@ def getUserAgeInDataset():
 			except:
 				continue
 		#		print str((value[val])['YoB'])+",",
-		print "Average Age == "+str(yob/countYob)+" for "+str(countYob)+" users" 
+		print ", Average Age == "+str(yob/countYob)+" for "+str(countYob)+" users" 
 				
+
 createDictionary()
 getUserAgeInDataset()
