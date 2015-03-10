@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Project 1</title>
+  <link href="stylesheets/tabs.css" rel="stylesheet" type="text/css"/>
+  <script type="text/javascript" src="d3/d3.js"></script>
+    <script type="text/javascript" src="d3/crossfilter.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
+
+  <script>
+  $(function() {
+    $( "#tabs" ).tabs();
+  });
+  </script>
+  <script>
+  function postRequest(parameters)
+  {
+  var xmlhttp;
+  if (window.XMLHttpRequest)
+    {// code for IE7+, Firefox, Chrome, Opera, Safari
+    xmlhttp=new XMLHttpRequest();
+    }
+  else
+    {// code for IE6, IE5
+    xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+    }
+  xmlhttp.onreadystatechange=function()
+    {
+    if (xmlhttp.readyState==4 && xmlhttp.status==200)
+      {
+      }
+    }
+  xmlhttp.open("POST",url,true);
+  xmlhttp.send();
+}
+  </script>
+
+</head>
+<body>
+<center>
+<div id="tabs" style="width:960px; ">
+	<ul>
+		<li><a href="#tabs-1">Data Analysis</a></li>
+		<li><a href="#tabs-2">Scatter Plot</a></li>
+		<li><a href="#tabs-3">Missing Data</a></li>
+
+	</ul>
+  	<div id="tabs-1">
+
+<div id="tab1">
+
+		<h1>How does number of students enrolling vary during terms</h1>
+		<table><tr><td>
+		<iframe width="600" height="371" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/1ffMytH9q92bkuBU7NHdFMzUwvvDJ9zoAPhR1E567aY8/pubchart?oid=818177652&amp;format=interactive"></iframe>
+		</td><td><h3>What we can see here is that for the same courses offered, the registration is high during Fall and less during spring. Is there a difference in the gender distribution?</h3></td></tr>
+		<tr><td colspan=2>
+		<h3>Gender ratio for the courses during two terms</h3>
+		<h3>Solid State Chemistry:</h3>
+		<iframe width="384" height="236" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/1ffMytH9q92bkuBU7NHdFMzUwvvDJ9zoAPhR1E567aY8/pubchart?oid=1740949967&amp;format=interactive"></iframe>
+		<iframe width="382" height="236" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/1ffMytH9q92bkuBU7NHdFMzUwvvDJ9zoAPhR1E567aY8/pubchart?oid=1379017320&amp;format=interactive"></iframe>
+		<h3>Circuits:</h3>
+		<iframe width="380" height="236" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/1ffMytH9q92bkuBU7NHdFMzUwvvDJ9zoAPhR1E567aY8/pubchart?oid=297506818&amp;format=interactive"></iframe>
+		<iframe width="380" height="236" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/1ffMytH9q92bkuBU7NHdFMzUwvvDJ9zoAPhR1E567aY8/pubchart?oid=1395655146&amp;format=interactive"></iframe>
+		<h3>Computer Science:</h3>
+		<iframe width="386" height="262" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/1ffMytH9q92bkuBU7NHdFMzUwvvDJ9zoAPhR1E567aY8/pubchart?oid=1791070431&amp;format=interactive"></iframe>
+		<iframe width="459" height="274" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/1ffMytH9q92bkuBU7NHdFMzUwvvDJ9zoAPhR1E567aY8/pubchart?oid=1202131712&amp;format=interactive"></iframe>
+		</td></tr>
+		<tr>
+		<td colspan=2>
+		<h3>Mean Age ratio for the courses during two terms</h3>
+		<iframe width="600" height="371" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/1ffMytH9q92bkuBU7NHdFMzUwvvDJ9zoAPhR1E567aY8/pubchart?oid=600075725&amp;format=interactive"></iframe>
+		<h3>Percentage change in registration based on age group</h3>
+		<iframe width="600" height="371" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/1ffMytH9q92bkuBU7NHdFMzUwvvDJ9zoAPhR1E567aY8/pubchart?oid=318481092&amp;format=interactive"></iframe>
+		<h3>Average Grades</h3>
+		<iframe width="457" height="276" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/1ffMytH9q92bkuBU7NHdFMzUwvvDJ9zoAPhR1E567aY8/pubchart?oid=1351933429&amp;format=interactive"></iframe>
+		<iframe width="457" height="276" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/1ffMytH9q92bkuBU7NHdFMzUwvvDJ9zoAPhR1E567aY8/pubchart?oid=478404743&amp;format=interactive"></iframe>
+		<h3>Percentage of Participants Certified</h3>
+		<iframe width="600" height="371" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/1ffMytH9q92bkuBU7NHdFMzUwvvDJ9zoAPhR1E567aY8/pubchart?oid=2125405590&amp;format=interactive"></iframe>
+		<h3>Percentage certified by age group</h3>
+		<iframe width="746" height="532" seamless frameborder="0" scrolling="no" src="https://docs.google.com/spreadsheets/d/1ffMytH9q92bkuBU7NHdFMzUwvvDJ9zoAPhR1E567aY8/pubchart?oid=758076960&amp;format=interactive"></iframe>
+		</td>
+		</tr>
+</table>
+</div>
+ 	</div>
+  	<div id="tabs-2">
+    	<div id="tab2"></div>
+
+  </div>
+  <div id="tabs-3">
+		<div id="tab3">
+
+
+					<div class="choiceDiv" id="demographics">
+						<h3>Demographics</h3>
+						<span  style="float:left"><input type="checkbox" name="demographics1" value="age" id="age" checked > Age</span><br><br>
+						<span  style="float:left"><input type="checkbox" name="demographics1" value="edu" id="edu" checked> Education Level</span><br><br>
+						<span  style="float:left"><input type="checkbox" name="demographics1" value="gender" id="gender" checked> Gender</span><br><br>
+						<span  style="float:left"><input type="checkbox" name="demographics1" value="cntry" id="cntry" checked> Country</span>
+					</div>
+					<div class="choiceDiv" id="outcome">
+						<h3>Result</h3>
+						<span  style="float:left"><input type="checkbox" name="outcome1" value="certi" id="certi" checked> Certification</span><br><br>
+						<span  style="float:left"><input type="checkbox" name="outcome1" value="grade" id="grade" checked> Grade</span>
+					</div>
+					<div class="choiceDiv" id="missing">
+						<h3>Missing Data</h3>
+						<span  style="float:left"><input type="radio" name="missing1" value="remove">Remove Missing Data</span><br><br>
+						<span  style="float:left"><input type="radio" name="missing1" value="distribute">Distribute Equally</span><br><br>
+						<span  style="float:left"><input type="radio" name="missing1" value="distributeAvg">Distribute by Ratio</span><br><br>
+						<span  style="float:left"><input type="radio" name="missing1" value="predict">Pridict and Impute</span>
+					</div>
+
+		</div>
+
+
+	</div>
+</div>
+
+<script>
+
+var margin = {top: 20, right: 20, bottom: 30, left: 40},
+    width = 960 - margin.left - margin.right,
+    height = 500 - margin.top - margin.bottom;
+
+var x = d3.scale.linear()
+    .range([0, width]);
+
+var y = d3.scale.linear()
+    .range([height, 0]);
+
+var color = d3.scale.category10();
+
+var xAxis = d3.svg.axis()
+    .scale(x)
+    .orient("bottom");
+
+var yAxis = d3.svg.axis()
+    .scale(y)
+    .orient("left");
+
+ var cars = new Array("Saab", "Volvo", "BMW");
+d3.select("#tab2").text("Select X-axis parameters &nbsp;");
+ var select = d3.select("#tab2").append("select")
+         .on("change", function() {
+		         change(this.options[this.selectedIndex].__data__);
+		     })
+		     .selectAll("option")
+		     .data(cars).enter()
+		     .append("option")
+		     .text(function(d) {
+		         return d;
+    });
+function change(car) {
+
+ console.log(car);
+}
+
+var svg = d3.select("#tab2").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+d3.tsv("data/data.tsv", function(error, data) {
+  data.forEach(function(d) {
+    d.sepalLength = +d.sepalLength;
+    d.sepalWidth = +d.sepalWidth;
+  });
+
+  x.domain(d3.extent(data, function(d) { return d.sepalWidth; })).nice();
+  y.domain(d3.extent(data, function(d) { return d.sepalLength; })).nice();
+
+  svg.append("g")
+      .attr("class", "x axis")
+      .attr("transform", "translate(0," + height + ")")
+      .call(xAxis)
+    .append("text")
+      .attr("class", "label")
+      .attr("x", width)
+      .attr("y", -6)
+      .style("text-anchor", "end")
+      .text("Sepal Width (cm)");
+
+  svg.append("g")
+      .attr("class", "y axis")
+      .call(yAxis)
+    .append("text")
+      .attr("class", "label")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 6)
+      .attr("dy", ".71em")
+      .style("text-anchor", "end")
+      .text("Sepal Length (cm)")
+
+  svg.selectAll(".dot")
+      .data(data)
+    .enter().append("circle")
+      .attr("class", "dot")
+      .attr("r", 3.5)
+      .attr("cx", function(d) { return x(d.sepalWidth); })
+      .attr("cy", function(d) { return y(d.sepalLength); })
+      .style("fill", function(d) { return color(d.species); });
+
+  var legend = svg.selectAll(".legend")
+      .data(color.domain())
+    .enter().append("g")
+      .attr("class", "legend")
+      .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
+
+  legend.append("rect")
+      .attr("x", width - 18)
+      .attr("width", 18)
+      .attr("height", 18)
+      .style("fill", color);
+
+  legend.append("text")
+      .attr("x", width - 24)
+      .attr("y", 9)
+      .attr("dy", ".35em")
+      .style("text-anchor", "end")
+      .text(function(d) { return d; });
+
+
+});
+
+var options = ["Education Level","Country","Gender","Age"];
+var courses  = [
+					"CB22X - The Ancient Greek Hero - Spring 2013"
+					,"CS50X - Introduction to Computer Science I - Fall 2012"
+					,"ER22X - Justice - Spring2013"
+					,"PH2017X - Health in Numbers: Quantitative Methods in Clinical & Public Health Research - Fall 2012"
+					,"PH 278X - Human Health and Global Environmental Change - Summer 2013"
+					,"14.73x - The Challenges of Global Poverty - Spring 2013"
+					,"2.01x - Elements of Structures - Spring 2013"
+					,"3.091x - Introduction to Solid State Chemistry - Fall 2012"
+					,"3.091x - Introduction to Solid State Chemistry - Spring 2013"
+					,"6.002x - Circuits and Electronics - Fall 2012"
+					,"6.002x - Circuits and Electronics - Spring 2013"
+					,"6.00x - Introduction to Computer Science and Programming - Fall 2012"
+					,"6.00x - Introduction to Computer Science and Programming - Spring 2013"
+					,"7.00x - Introduction to Biology - The secret to Life - Spring 2013"
+					,"8.02x - Electricity and Magnetism - Spring 2013"
+					,"8.MReV - Mechanics Review - Spring 2013"
+				];
+
+d3.select("#tab3").append("div").attr("style","float:left;width:960px").text("Select a course");
+var selectCrs = d3.select("#tab3").append("select")
+       .on("change", function() {
+		         changeCrs(this.options[this.selectedIndex].__data__);
+		     })
+		     .selectAll("option")
+		     .data(courses).enter()
+		     .append("option")
+		     .text(function(d) {
+		         return d;
+    });
+function changeCrs(crs) {
+
+ console.log(crs);
+}
+
+var courseDistri = [
+						 {'course':'CB22X - The Ancient Greek Hero - Spring 2013','registrations':28593}
+						,{'course':'CS50X - Introduction to Computer Science I - Fall 2012','registrations':100759}
+						,{'course':'ER22X - Justice - Spring2013','registrations':54721}
+						,{'course':'PH207X - Health in Numbers: Quantitative Methods in Clinical & Public Health Research - Fall 2012','registrations':41271}
+						,{'course':'PH 278X - Human Health and Global Environmental Change - Summer 2013','registrations':35494}
+						,{'course':'14.73x - The Challenges of Global Poverty - Spring 2013','registrations':25192}
+						,{'course':'2.01x - Elements of Structures - Spring 2013','registrations':5500}
+						,{'course':'3.091x - Introduction to Solid State Chemistry - Fall 2012','registrations':13939}
+						,{'course':'3.091x - Introduction to Solid State Chemistry - Spring 2013','registrations':5358}
+						,{'course':'6.002x - Circuits and Electronics - Fall 2012','registrations':39075}
+						,{'course':'6.002x - Circuits and Electronics - Spring 2013','registrations':19590}
+						,{'course':'6.00x - Introduction to Computer Science and Programming - Fall 2012','registrations':66151}
+						,{'course':'6.00x - Introduction to Computer Science and Programming - Spring 2013','registrations':50864}
+						,{'course':'7.00x - Introduction to Biology - The secret to Life - Spring 2013','registrations':19566}
+						,{'course':'8.02x - Electricity and Magnetism - Spring 2013','registrations':25969}
+						,{'course':'8.MReV - Mechanics Review - Spring 2013','registrations':8885}
+						]
+
+//var demographicsFilter = ["Age","Gender","Education Level","Country"]
+
+//var crsDataCheck = d3.select("#demographics").data(demographicsFilter).enter().append("span");
+//crsDataCheck.append("input").attr({
+//										type: "radio",
+//										class: "shape",
+//										name: "mode",
+//										value: function(d, i) {return i;}
+//    							});
+
+//crsDataCheck.append("label").text(function(d) {return d;});
+</script>
+
+</center>
+</body>
+</html>

@@ -1,0 +1,235 @@
+   * { margin: 0; padding: 0; }
+        #page-wrap { width: 960px; margin: 100px auto; }
+        h1 { font: 36px Georgia, Serif; margin: 20px 0; }
+        .group:after { visibility: hidden; display: block; font-size: 0; content: " "; clear: both; height: 0; }
+        p { margin: 0 0 10px 0; }
+        
+        .tabs { list-style: none; }
+        .tabs li { display: inline; }
+        .tabs li a { color: black; float: left; display: block; padding: 4px 10px; margin-left: -1px; position: relative; left: 1px; background: white; text-decoration: none; }
+        .tabs li a:hover { background: #ccc; }
+        
+        
+        /* Generic styles & example one */
+        
+        .tabbed-area { margin: 0 0 120px 0;padding:0 30px 0 0 }
+        .box-wrap { position: relative; min-height: 250px; }
+        .tabbed-area div div { background: white; padding: 20px; min-height: 250px; position: absolute; top: -1px; left: 0; width: 100%; }
+        .tabbed-area div div, .tabs li a { border: 1px solid #ccc; }
+        .sel {background:#a3d6f1}
+        #box-one:target, #box-two:target, #box-three:target, #box-four:target { z-index: 1; }
+        
+        
+        
+        /* Stuff for example two */
+        
+        .cur-nav-fix { margin-top: 60px; }
+        .cur-nav-fix .tabs { position: absolute; bottom: 100%; left: -1px; }
+        .cur-nav-fix .tabs li a { background: -moz-linear-gradient(top, white, #eee); }
+        .tabs .sel  a{background-color:#ffffff; color:#000000}
+        .tabs .unsel  a{background-color:#333333; color:#cccccc}
+        //#box-four { z-index: 1; }
+        //#box-four:target .tabs,
+        #box-five:target .tabs,
+        #box-six:target .tabs { z-index: 3; }
+        //#box-four:target, #box-five:target, #box-six:target { z-index: 2; }
+        .cur-nav-fix .tabs li.cur a { border-bottom: 1px solid white; background: white; }
+        
+        
+        /* Stuff for example three */
+        
+        .cur-nav-fix-2 .tabs li a { background: -moz-linear-gradient(top, white, #eee); }
+        .cur-nav-fix-2 .tabs { z-index: 2; position: relative; }
+        #box-seven:target .box-seven,
+        #box-eight:target .box-eight,
+        #box-nine:target .box-nine { z-index: 1; }
+        #box-seven:target a[href="#box-seven"],
+        #box-eight:target a[href="#box-eight"],
+        #box-nine:target a[href="#box-nine"] { border-bottom: 1px solid white; background: white; }
+        
+
+	.sel {background-color:#3333cc}
+	.unsel {background-color:#333333}
+        /* Stuff for example four */
+        
+        .active-test { padding-top: 40px; }
+        .active-test .single-tab em { background: white; width: 50px; font-style: normal; position: absolute; bottom: 100%; text-decoration: none; color: black; border: 1px solid #ccc; padding: 5px 10px; }
+        .active-test .single-tab span { position: absolute; top: -1px; left: 0; width: 100%; display: block; padding: 20px; border: 1px solid #ccc; min-height: 250px; background: white; }
+        .active-test .single-tab:active em { background: #ccc; }
+        .active-test .single-tab:active span, .active-test .single-tab:focus span { z-index: 1; }
+        .tab-ten em { left: 0; }
+        .tab-eleven em { left: 70px; }
+        .tab-twelve em { left: 140px; }
+        
+        
+        /* Stuff for example five */
+        
+        .adjacent { position: relative; margin-top: 50px; min-height: 300px; }
+        .adjacent div { border: 1px solid #ccc; background: white; padding: 20px; min-height: 250px; position: absolute; top: -1px; left: 0; width: 100%; }
+        .adjacent .tabs { position: absolute; bottom: 100%; left: 0; z-index: 2; }
+        .adjacent .tabs li a { background: -moz-linear-gradient(top, white, #eee); }
+        #box-thirteen:target,
+        #box-fourteen:target,
+        #box-fifteen:target { z-index: 1; }
+        #box-thirteen:target ~ .tabs a[href='#box-thirteen'],
+        #box-fourteen:target ~ .tabs a[href='#box-fourteen'],
+        #box-fifteen:target ~ .tabs a[href='#box-fifteen'] { background: white; border-bottom: 1px solid white; }
+
+
+        /* Stuff for example six */
+
+        .w3c { min-height: 250px; position: relative; width: 100%; }
+        .w3c > div { display: inline; }
+        .w3c > div > a { margin-left: -1px; position: relative; left: 1px; text-decoration: none; color: black; background: white; display: block; float: left; padding: 5px 10px; border: 1px solid #ccc; border-bottom: 1px solid white; }
+        .w3c > div:not(:target) > a { border-bottom: 0; background: -moz-linear-gradient(top, white, #eee); }	
+        .w3c > div:target > a { background: white; }	
+        .w3c > div > div { background: white; z-index: -2; left: 0; top: 30px; bottom: 0; right: 0; padding: 20px; border: 1px solid #ccc; }	
+        .w3c > div:not(:target) > div { position: absolute }
+        .w3c > div:target > div { position: absolute; z-index: -1; }
+        
+        
+        /* Stuff for example seven - including conditionals below */
+        
+        #ie-test { position: relative; width: 100%; }
+        #boxLinks { list-style: none; overflow: hidden; }
+        #boxLinks li {  display: inline; }
+        #boxLinks li a { padding: 5px 10px; color: black; text-decoration: none; border: 1px solid #ccc; float: left; display: block; margin-left: -1px; position: relative; left: 1px; }
+        #boxLinks li a:hover { color: #fff; background: #000; }
+        #box { height: 250px; border: 1px solid #ccc; overflow: hidden; padding: 0px 30px 0px 30px; position: relative; top: -1px; }
+        .box { display: none; height: 250px; overflow: auto; display: block; position: relative; overflow-x: hidden; }
+        #box1:target, #box2:target, #box3:target { display: block; }
+body {
+  font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+text {
+  font: 18px sans-serif;
+}
+text2 {
+  font: 14px sans-serif;
+}
+
+.group-label {
+  font-weight: bold;
+  text-anchor: end;
+}
+
+//form {
+//  position: fixed;
+//  right: 350px;
+//  top: 100px;
+//}
+
+.tooltip {
+    text-anchor: middle;
+    font-family: sans-serif;
+    font-size: 11px;
+    font-weight: bold;
+    fill: white;
+}
+
+#tooltip {
+        position: absolute;
+        width: 200px;
+        height: auto;
+        padding: 10px;
+        background-color: white;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        border-radius: 10px;
+        -webkit-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+        -moz-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+        box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+        pointer-events: none;
+}
+
+#tooltip.hidden {
+        display: none;
+}
+
+#tooltip p {
+        margin: 0;
+        font-family: sans-serif;
+        font-size: 16px;
+        line-height: 20px;
+}
+
+.tooltip2 {
+    text-anchor: middle;
+    font-family: sans-serif;
+    font-size: 11px;
+    font-weight: bold;
+    fill: white;
+}
+
+#tooltip2 {
+        position: absolute;
+        width: 200px;
+        height: auto;
+        padding: 10px;
+        background-color: white;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        border-radius: 10px;
+        -webkit-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+        -moz-box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+        box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+        pointer-events: none;
+}
+
+#tooltip2.hidden {
+        display: none;
+}
+
+#tooltip2 p {
+        margin: 0;
+        font-family: sans-serif;
+        font-size: 16px;
+        line-height: 20px;
+}
+
+
+
+
+rect {
+        -moz-transition: all 0.3s;
+        -o-transition: all 0.3s;
+        -webkit-transition: all 0.3s;
+        transition: all 0.3s;
+}
+
+//#form
+//{
+//		width : 200px;
+		
+//		padding: 10px;
+//}
+
+rect:hover {
+        fill: orange;
+}
+
+div.bar {
+    display: inline-block;
+    width: 20px;
+    height: 75px;   /* We'll override this later */
+    background-color: teal;
+}
+
+.legend {
+    font-size: 18px;
+  }
+  rect L{
+    stroke-width: 2;
+  }
+  
+  .infoBox{font-size:14px;}
+  
+.choiceDiv{border-style: solid; width:270px;float: left;height:100px;padding:10px}  
