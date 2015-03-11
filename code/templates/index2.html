@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Project 1</title>
+  <link href="stylesheets/tabs.css" rel="stylesheet" type="text/css"/>
+  <script type="text/javascript" src="d3/d3.js"></script>
+    <script type="text/javascript" src="d3/crossfilter.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
+
+  <script>
+  $(function() {
+    $( "#tabs" ).tabs();
+  });
+  </script>
+  <script>
+  function postRequest(parameters)
+  {
+  var xmlhttp;
+  if (window.XMLHttpRequest)
+    {// code for IE7+, Firefox, Chrome, Opera, Safari
+    xmlhttp=new XMLHttpRequest();
+    }
+  else
+    {// code for IE6, IE5
+    xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+    }
+  xmlhttp.onreadystatechange=function()
+    {
+    if (xmlhttp.readyState==4 && xmlhttp.status==200)
+      {
+      }
+    }
+  xmlhttp.open("POST",url,true);
+  xmlhttp.send();
+}
+  </script>
+
+</head>
+<body>
+<center>
+<div id="tabs" style="width:960px; ">
+	<ul>
+		<li><a href="#tabs-1">Data Analysis</a></li>
+		<li><a href="#tabs-2">Scatter Plot</a></li>
+		<li><a href="#tabs-3">Missing Data</a></li>
+
+	</ul>
+  	<div id="tabs-1">
+		<div id="tab1"></div>
+ 	</div>
+  	<div id="tabs-2">
+    	<div id="tab2">
+    		</div>
+	</div>
+  <div id="tabs-3">
+		<div id="tab3">
+
+
+					<div class="choiceDiv" id="demographics">
+						<h3>Demographics</h3>
+						<span  style="float:left"><input type="radio" name="demographics1" value="age" id="age"> Age</span><br><br>
+						<span  style="float:left"><input type="radio" name="demographics1" value="edu" id="edu"> Education Level</span><br><br>
+						<span  style="float:left"><input type="radio" name="demographics1" value="gender" id="gender"> Gender</span><br><br>
+						<span  style="float:left"><input type="radio" name="demographics1" value="cntry" id="cntry"> Country</span>
+					</div>
+					<div class="choiceDiv" id="outcome">
+						<h3>Result</h3>
+						<span  style="float:left"><input type="checkbox" name="outcome1" value="certi" id="certi" checked> Certification</span><br><br>
+						<span  style="float:left"><input type="checkbox" name="outcome1" value="grade" id="grade" checked> Grade</span>
+					</div>
+					<div class="choiceDiv" id="missing">
+						<h3>Missing Data</h3>
+						<span  style="float:left"><input type="radio" name="missing1" value="remove">Remove Missing Data</span><br><br>
+						<span  style="float:left"><input type="radio" name="missing1" value="distribute">Distribute Equally</span><br><br>
+						<span  style="float:left"><input type="radio" name="missing1" value="distributeAvg">Distribute by Ratio</span><br><br>
+						<span  style="float:left"><input type="radio" name="missing1" value="predict">Pridict and Impute</span>
+					</div>
+
+					<div id="tab3-pi">
+					</div>
+
+		</div>
+
+
+	</div>
+</div>
+
+<script>
+var currDemog = "A";
+var options = ["Education Level","Country","Gender","Age"];
+var courses  = [
+					"CB22X - The Ancient Greek Hero - Spring 2013"
+					,"CS50X - Introduction to Computer Science I - Fall 2012"
+					,"ER22X - Justice - Spring2013"
+					,"PH2017X - Health in Numbers: Quantitative Methods in Clinical & Public Health Research - Fall 2012"
+					,"PH 278X - Human Health and Global Environmental Change - Summer 2013"
+					,"14.73x - The Challenges of Global Poverty - Spring 2013"
+					,"2.01x - Elements of Structures - Spring 2013"
+					,"3.091x - Introduction to Solid State Chemistry - Fall 2012"
+					,"3.091x - Introduction to Solid State Chemistry - Spring 2013"
+					,"6.002x - Circuits and Electronics - Fall 2012"
+					,"6.002x - Circuits and Electronics - Spring 2013"
+					,"6.00x - Introduction to Computer Science and Programming - Fall 2012"
+					,"6.00x - Introduction to Computer Science and Programming - Spring 2013"
+					,"7.00x - Introduction to Biology - The secret to Life - Spring 2013"
+					,"8.02x - Electricity and Magnetism - Spring 2013"
+					,"8.MReV - Mechanics Review - Spring 2013"
+				];
+
+var courses_short  = [
+					"The Ancient Greek Hero"
+					,"Introduction to CS 1"
+					,"JusticeX"
+					,"Health in Numbers: Quantitative Methods in Clinical & Public Health Research"
+					,"Human Health and Global Environmental Change"
+					,"The Challenges of Global Poverty"
+					,"Elements of Structures"
+					,"Introduction to Solid State Chemistry"
+					,"Introduction to Solid State Chemistry"
+					,"Circuits and Electronics"
+					,"Circuits and Electronics"
+					,"Introduction to Computer Science and Programming"
+					,"Introduction to Computer Science and Programming"
+					,"Introduction to Biology - The secret to Life"
+					,"Electricity and Magnetism"
+					,"Mechanics Review"
+				];
+
+
+d3.select("#tab3").append("div").attr("style","float:left;width:960px").text("Select a course");
+var currentCourse = "The Ancient Greek Hero";
+var selectCrs = d3.select("#tab3").append("select")
+       .on("change", function() {
+		         changeCrs(this.options[this.selectedIndex].__data__);
+		     })
+		     .selectAll("option")
+		     .data(courses_short).enter()
+		     .append("option")
+		     .text(function(d) {
+		         return d;
+    });
+function changeCrs(crs) {
+
+ console.log(crs);
+ currentCourse = crs;
+ update(currDemog);
+ visualizeit();
+}
+
+var courseDistri = [
+						 {'course':'CB22X - The Ancient Greek Hero - Spring 2013','registrations':28593}
+						,{'course':'CS50X - Introduction to Computer Science I - Fall 2012','registrations':100759}
+						,{'course':'ER22X - Justice - Spring2013','registrations':54721}
+						,{'course':'PH207X - Health in Numbers: Quantitative Methods in Clinical & Public Health Research - Fall 2012','registrations':41271}
+						,{'course':'PH 278X - Human Health and Global Environmental Change - Summer 2013','registrations':35494}
+						,{'course':'14.73x - The Challenges of Global Poverty - Spring 2013','registrations':25192}
+						,{'course':'2.01x - Elements of Structures - Spring 2013','registrations':5500}
+						,{'course':'3.091x - Introduction to Solid State Chemistry - Fall 2012','registrations':13939}
+						,{'course':'3.091x - Introduction to Solid State Chemistry - Spring 2013','registrations':5358}
+						,{'course':'6.002x - Circuits and Electronics - Fall 2012','registrations':39075}
+						,{'course':'6.002x - Circuits and Electronics - Spring 2013','registrations':19590}
+						,{'course':'6.00x - Introduction to Computer Science and Programming - Fall 2012','registrations':66151}
+						,{'course':'6.00x - Introduction to Computer Science and Programming - Spring 2013','registrations':50864}
+						,{'course':'7.00x - Introduction to Biology - The secret to Life - Spring 2013','registrations':19566}
+						,{'course':'8.02x - Electricity and Magnetism - Spring 2013','registrations':25969}
+						,{'course':'8.MReV - Mechanics Review - Spring 2013','registrations':8885}
+						]
+
+//var demographicsFilter = ["Age","Gender","Education Level","Country"]
+
+//var crsDataCheck = d3.select("#demographics").data(demographicsFilter).enter().append("span");
+//crsDataCheck.append("input").attr({
+//										type: "radio",
+//										class: "shape",
+//										name: "mode",
+//										value: function(d, i) {return i;}
+//    							});
+
+//crsDataCheck.append("label").text(function(d) {return d;});
+
+  d3.selectAll("input[name='demographics1']")
+  .on("click", filterDemog);
+
+
+  function filterDemog()
+  {
+  	   try {
+	    d3.select("#tab3").selectAll("svg")
+	       .remove();
+
+	    checkDemog();
+
+	    //update();
+	    } catch (e) {
+	        window.location.reload();
+    }
+  }
+
+  function checkDemog()
+  {
+  	var ageState = document.getElementById("age").checked;
+  	var eduState = document.getElementById("edu").checked;
+  	var genderState = document.getElementById("gender").checked;
+  	var cntryState = document.getElementById("cntry").checked;
+
+  	if(ageState)
+  	{
+  		update("A");
+  		currDemog = "A";
+  	}
+  	else if(eduState)
+  	{
+  		update("E");
+  		currDemog = "E";
+  	}
+  	else if(genderState)
+  	{
+  		update("G");
+  		currDemog = "G";
+  	}
+  	else
+  	{
+  		update("C");
+  		currDemog = "C";
+  	}
+
+  }
+  		var dataDisp;
+
+  function update(demog)
+  {
+  	console.log(demog);
+
+  	//load data from json here
+  	if (demog == "A")
+  	{
+		d3.json("data/age_data.json", function(error,json) {
+  		if (error) return console.warn(error);
+  			dataDisp = json;
+			visualizeit();
+		});
+  	}
+  }
+function visualizeit()
+{
+	console.log(dataDisp);
+	console.log(currentCourse);
+	d3.select("#tab3").selectAll("svg").remove();
+	dataDisp.forEach(function(d)
+	{
+		if(d._course === currentCourse)
+		{
+			var piData = d.total;
+			drawPi(piData);
+
+
+		}
+	});
+}
+
+var ageCategory = ["14 to 19","20 to 24","25-29","30 to 39","40-49","5 and under","50-59","60-69","70 and above","9 to 13","NA"];
+
+function drawPi(piData)
+{
+	var newData = []
+	for(key in piData)
+	{
+		var dataPut = {};
+		dataPut["ageRange"] = key;
+		dataPut["count"] = piData[key];
+
+		newData.push(dataPut);
+		console.log(key, piData[key]);
+	}
+		var width = 540,
+			height = 500;
+
+
+		var outerRadius = height / 2 - 80,
+			innerRadius = outerRadius / 3,
+			cornerRadius = 10;
+
+		var pie = d3.layout.pie()
+			.value(function(d){return d.count;})
+			.padAngle(.02);
+
+		var arc = d3.svg.arc()
+			.padRadius(outerRadius)
+			.innerRadius(innerRadius);
+
+		var svg = d3.select("#tab3-pi").append("svg")
+		.attr("width", width)
+		.attr("height", height)
+		.append("g")
+		.attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+
+
+		var color = d3.scale
+			.ordinal()
+			.range(["#ddccbb", "#ccddbb", "#bbddcc", "#ccbbaa", "#bbaacc", "#aabbcc"]);
+
+			console.log(newData);
+
+
+
+			var path = svg.selectAll("path")
+			.data(pie(newData))
+			.enter().append("path")
+			.each(function(d) { d.outerRadius = outerRadius - 20; })
+			.attr("d", arc)
+			.style("fill", function(d, i) { return color(i); })
+			.on("mouseover", arcTween(outerRadius, 50))
+			.on("mouseout", arcTween(outerRadius - 20, 0))
+			.text(function(d, i) {
+    return newData[i].ageRange;})
+			;
+
+
+
+
+			function arcTween(outerRadius, delay) {
+			return function() {
+
+
+				d3.select(this).transition().delay(delay).attrTween("d", function(d) {
+				console.log(d);
+				value = d.data;
+				//var percent = Math.round(((100*value )/sum)*100)/100;
+
+				if(delay!=0)
+				{
+					var xPosition = 650;
+					var yPosition = 200;
+
+					d3.select("#tooltip2")
+                   .style("left", xPosition + "px")
+                   .style("top", yPosition + "px")
+                   .select("#value")
+                   //.text(value+ "("+percent+"%)");
+					d3.select("#tooltip2").classed("hidden", false);
+				}
+				else
+				{
+					d3.select("#tooltip2").classed("hidden", true);
+				}
+
+
+				var i = d3.interpolate(d.outerRadius, outerRadius);
+				return function(t) { d.outerRadius = i(t); return arc(d); };
+
+				});
+
+				};
+				}
+
+
+
+}
+
+</script>
+
+</center>
+</body>
+</html>
