@@ -1,0 +1,930 @@
+[
+    {
+        "_course": "Intro to Solid State Chemistry", 
+        "_term": "Fall", 
+        "avg_grades": {
+            "NA": 0.08, 
+            "Other": "NA", 
+            "female": 0.05, 
+            "male": 0.05
+        }, 
+        "avg_grades_overzero": {
+            "NA": 0.08, 
+            "Other": "NA", 
+            "female": 0.05, 
+            "male": 0.05
+        }, 
+        "certified": {
+            "NA": 177, 
+            "Other": 0, 
+            "female": 121, 
+            "male": 334
+        }, 
+        "count_grades": {
+            "NA": 2492, 
+            "Other": 0, 
+            "female": 2558, 
+            "male": 7926
+        }, 
+        "count_grades_overzero": {
+            "NA": 2492, 
+            "Other": 0, 
+            "female": 2558, 
+            "male": 7926
+        }, 
+        "sum_grades": {
+            "NA": 192.02999999999992, 
+            "Other": 0, 
+            "female": 132.3400000000002, 
+            "male": 358.0100000000009
+        }, 
+        "sum_grades_overzero": {
+            "NA": 192.02999999999992, 
+            "Other": 0, 
+            "female": 132.3400000000002, 
+            "male": 358.0100000000009
+        }, 
+        "total": {
+            "NA": 2549, 
+            "Other": 0, 
+            "female": 2828, 
+            "male": 8562
+        }, 
+        "uncertified": {
+            "NA": 2372, 
+            "Other": 0, 
+            "female": 2707, 
+            "male": 8228
+        }
+    }, 
+    {
+        "_course": "The Challenges of Global Poverty", 
+        "_term": "Spring", 
+        "avg_grades": {
+            "NA": 0.08, 
+            "Other": "NA", 
+            "female": 0.11, 
+            "male": 0.07
+        }, 
+        "avg_grades_overzero": {
+            "NA": 0.08, 
+            "Other": "NA", 
+            "female": 0.11, 
+            "male": 0.07
+        }, 
+        "certified": {
+            "NA": 173, 
+            "Other": 0, 
+            "female": 1107, 
+            "male": 804
+        }, 
+        "count_grades": {
+            "NA": 2385, 
+            "Other": 0, 
+            "female": 9997, 
+            "male": 11246
+        }, 
+        "count_grades_overzero": {
+            "NA": 2385, 
+            "Other": 0, 
+            "female": 9997, 
+            "male": 11246
+        }, 
+        "sum_grades": {
+            "NA": 184.64, 
+            "Other": 0, 
+            "female": 1075.8099999999895, 
+            "male": 822.479999999992
+        }, 
+        "sum_grades_overzero": {
+            "NA": 184.64, 
+            "Other": 0, 
+            "female": 1075.8099999999895, 
+            "male": 822.479999999992
+        }, 
+        "total": {
+            "NA": 2497, 
+            "Other": 0, 
+            "female": 10541, 
+            "male": 12154
+        }, 
+        "uncertified": {
+            "NA": 2324, 
+            "Other": 0, 
+            "female": 9434, 
+            "male": 11350
+        }
+    }, 
+    {
+        "_course": "Mechanics ReView", 
+        "_term": "Summer", 
+        "avg_grades": {
+            "NA": 0.05, 
+            "Other": "NA", 
+            "female": 0.05, 
+            "male": 0.04
+        }, 
+        "avg_grades_overzero": {
+            "NA": 0.05, 
+            "Other": "NA", 
+            "female": 0.05, 
+            "male": 0.04
+        }, 
+        "certified": {
+            "NA": 83, 
+            "Other": 0, 
+            "female": 21, 
+            "male": 193
+        }, 
+        "count_grades": {
+            "NA": 1872, 
+            "Other": 0, 
+            "female": 631, 
+            "male": 5722
+        }, 
+        "count_grades_overzero": {
+            "NA": 1872, 
+            "Other": 0, 
+            "female": 631, 
+            "male": 5722
+        }, 
+        "sum_grades": {
+            "NA": 98.27999999999997, 
+            "Other": 0, 
+            "female": 29.89000000000002, 
+            "male": 232.70999999999967
+        }, 
+        "sum_grades_overzero": {
+            "NA": 98.27999999999997, 
+            "Other": 0, 
+            "female": 29.89000000000002, 
+            "male": 232.70999999999967
+        }, 
+        "total": {
+            "NA": 1921, 
+            "Other": 0, 
+            "female": 665, 
+            "male": 6299
+        }, 
+        "uncertified": {
+            "NA": 1838, 
+            "Other": 0, 
+            "female": 644, 
+            "male": 6106
+        }
+    }, 
+    {
+        "_course": "Health in Numbers", 
+        "_term": "Fall", 
+        "avg_grades": {
+            "NA": 0.06, 
+            "Other": "NA", 
+            "female": 0.08, 
+            "male": 0.07
+        }, 
+        "avg_grades_overzero": {
+            "NA": 0.06, 
+            "Other": "NA", 
+            "female": 0.08, 
+            "male": 0.07
+        }, 
+        "certified": {
+            "NA": 78, 
+            "Other": 0, 
+            "female": 814, 
+            "male": 949
+        }, 
+        "count_grades": {
+            "NA": 2191, 
+            "Other": 0, 
+            "female": 14173, 
+            "male": 19117
+        }, 
+        "count_grades_overzero": {
+            "NA": 2191, 
+            "Other": 0, 
+            "female": 14173, 
+            "male": 19117
+        }, 
+        "sum_grades": {
+            "NA": 122.99, 
+            "Other": 0, 
+            "female": 1133.7099999999864, 
+            "male": 1342.059999999981
+        }, 
+        "sum_grades_overzero": {
+            "NA": 122.99, 
+            "Other": 0, 
+            "female": 1133.7099999999864, 
+            "male": 1342.059999999981
+        }, 
+        "total": {
+            "NA": 2726, 
+            "Other": 0, 
+            "female": 16439, 
+            "male": 22106
+        }, 
+        "uncertified": {
+            "NA": 2648, 
+            "Other": 0, 
+            "female": 15625, 
+            "male": 21157
+        }
+    }, 
+    {
+        "_course": "Human Health & Global Environmental  Change", 
+        "_term": "Spring", 
+        "avg_grades": {
+            "NA": 0.04, 
+            "Other": "NA", 
+            "female": 0.03, 
+            "male": 0.03
+        }, 
+        "avg_grades_overzero": {
+            "NA": 0.04, 
+            "Other": "NA", 
+            "female": 0.03, 
+            "male": 0.03
+        }, 
+        "certified": {
+            "NA": 61, 
+            "Other": 0, 
+            "female": 298, 
+            "male": 350
+        }, 
+        "count_grades": {
+            "NA": 2027, 
+            "Other": 0, 
+            "female": 13462, 
+            "male": 13687
+        }, 
+        "count_grades_overzero": {
+            "NA": 2027, 
+            "Other": 0, 
+            "female": 13462, 
+            "male": 13687
+        }, 
+        "sum_grades": {
+            "NA": 71.09, 
+            "Other": 0, 
+            "female": 378.85999999999916, 
+            "male": 411.7499999999987
+        }, 
+        "sum_grades_overzero": {
+            "NA": 71.09, 
+            "Other": 0, 
+            "female": 378.85999999999916, 
+            "male": 411.7499999999987
+        }, 
+        "total": {
+            "NA": 2555, 
+            "Other": 0, 
+            "female": 16379, 
+            "male": 16560
+        }, 
+        "uncertified": {
+            "NA": 2494, 
+            "Other": 0, 
+            "female": 16081, 
+            "male": 16210
+        }
+    }, 
+    {
+        "_course": "Intro to CS & Programming", 
+        "_term": "Fall", 
+        "avg_grades": {
+            "NA": 0.09, 
+            "Other": "NA", 
+            "female": 0.04, 
+            "male": 0.03
+        }, 
+        "avg_grades_overzero": {
+            "NA": 0.09, 
+            "Other": "NA", 
+            "female": 0.04, 
+            "male": 0.03
+        }, 
+        "certified": {
+            "NA": 819, 
+            "Other": 0, 
+            "female": 242, 
+            "male": 1414
+        }, 
+        "count_grades": {
+            "NA": 9532, 
+            "Other": 0, 
+            "female": 7830, 
+            "male": 47478
+        }, 
+        "count_grades_overzero": {
+            "NA": 9532, 
+            "Other": 0, 
+            "female": 7830, 
+            "male": 47478
+        }, 
+        "sum_grades": {
+            "NA": 852.2800000000007, 
+            "Other": 0, 
+            "female": 277.15999999999747, 
+            "male": 1600.5799999999322
+        }, 
+        "sum_grades_overzero": {
+            "NA": 852.2800000000007, 
+            "Other": 0, 
+            "female": 277.15999999999747, 
+            "male": 1600.5799999999322
+        }, 
+        "total": {
+            "NA": 9545, 
+            "Other": 0, 
+            "female": 8342, 
+            "male": 48264
+        }, 
+        "uncertified": {
+            "NA": 8726, 
+            "Other": 0, 
+            "female": 8100, 
+            "male": 46850
+        }
+    }, 
+    {
+        "_course": "Electricity & Magnetism", 
+        "_term": "Spring", 
+        "avg_grades": {
+            "NA": 0.06, 
+            "Other": "NA", 
+            "female": 0.03, 
+            "male": 0.03
+        }, 
+        "avg_grades_overzero": {
+            "NA": 0.06, 
+            "Other": "NA", 
+            "female": 0.03, 
+            "male": 0.03
+        }, 
+        "certified": {
+            "NA": 395, 
+            "Other": 0, 
+            "female": 45, 
+            "male": 382
+        }, 
+        "count_grades": {
+            "NA": 7168, 
+            "Other": 0, 
+            "female": 1763, 
+            "male": 15101
+        }, 
+        "count_grades_overzero": {
+            "NA": 7168, 
+            "Other": 0, 
+            "female": 1763, 
+            "male": 15101
+        }, 
+        "sum_grades": {
+            "NA": 431.22000000000133, 
+            "Other": 0, 
+            "female": 58.62000000000001, 
+            "male": 455.8499999999959
+        }, 
+        "sum_grades_overzero": {
+            "NA": 431.22000000000133, 
+            "Other": 0, 
+            "female": 58.62000000000001, 
+            "male": 455.8499999999959
+        }, 
+        "total": {
+            "NA": 7390, 
+            "Other": 0, 
+            "female": 1978, 
+            "male": 16601
+        }, 
+        "uncertified": {
+            "NA": 6995, 
+            "Other": 0, 
+            "female": 1933, 
+            "male": 16219
+        }
+    }, 
+    {
+        "_course": "Intro to Biology", 
+        "_term": "Spring", 
+        "avg_grades": {
+            "NA": 0.08, 
+            "Other": "NA", 
+            "female": 0.04, 
+            "male": 0.04
+        }, 
+        "avg_grades_overzero": {
+            "NA": 0.08, 
+            "Other": "NA", 
+            "female": 0.04, 
+            "male": 0.04
+        }, 
+        "certified": {
+            "NA": 265, 
+            "Other": 0, 
+            "female": 224, 
+            "male": 332
+        }, 
+        "count_grades": {
+            "NA": 3545, 
+            "Other": 0, 
+            "female": 5855, 
+            "male": 8922
+        }, 
+        "count_grades_overzero": {
+            "NA": 3545, 
+            "Other": 0, 
+            "female": 5855, 
+            "male": 8922
+        }, 
+        "sum_grades": {
+            "NA": 267.9900000000002, 
+            "Other": 0, 
+            "female": 251.72999999999962, 
+            "male": 371.45999999999776
+        }, 
+        "sum_grades_overzero": {
+            "NA": 267.9900000000002, 
+            "Other": 0, 
+            "female": 251.72999999999962, 
+            "male": 371.45999999999776
+        }, 
+        "total": {
+            "NA": 3592, 
+            "Other": 0, 
+            "female": 6325, 
+            "male": 9649
+        }, 
+        "uncertified": {
+            "NA": 3327, 
+            "Other": 0, 
+            "female": 6101, 
+            "male": 9317
+        }
+    }, 
+    {
+        "_course": "Circuits & Electronics", 
+        "_term": "Fall", 
+        "avg_grades": {
+            "NA": 0.09, 
+            "Other": "NA", 
+            "female": 0.06, 
+            "male": 0.05
+        }, 
+        "avg_grades_overzero": {
+            "NA": 0.09, 
+            "Other": "NA", 
+            "female": 0.06, 
+            "male": 0.05
+        }, 
+        "certified": {
+            "NA": 549, 
+            "Other": 0, 
+            "female": 134, 
+            "male": 1067
+        }, 
+        "count_grades": {
+            "NA": 7265, 
+            "Other": 0, 
+            "female": 2494, 
+            "male": 22508
+        }, 
+        "count_grades_overzero": {
+            "NA": 7265, 
+            "Other": 0, 
+            "female": 2494, 
+            "male": 22508
+        }, 
+        "sum_grades": {
+            "NA": 639.8900000000012, 
+            "Other": 0, 
+            "female": 159.15999999999997, 
+            "male": 1231.7599999999734
+        }, 
+        "sum_grades_overzero": {
+            "NA": 639.8900000000012, 
+            "Other": 0, 
+            "female": 159.15999999999997, 
+            "male": 1231.7599999999734
+        }, 
+        "total": {
+            "NA": 8338, 
+            "Other": 0, 
+            "female": 2996, 
+            "male": 27741
+        }, 
+        "uncertified": {
+            "NA": 7789, 
+            "Other": 0, 
+            "female": 2862, 
+            "male": 26674
+        }
+    }, 
+    {
+        "_course": "Introduction to CS 1", 
+        "_term": "Fall", 
+        "avg_grades": {
+            "NA": 0.02, 
+            "Other": 0.0, 
+            "female": 0.01, 
+            "male": 0.01
+        }, 
+        "avg_grades_overzero": {
+            "NA": 0.02, 
+            "Other": 0.0, 
+            "female": 0.01, 
+            "male": 0.01
+        }, 
+        "certified": {
+            "NA": 180, 
+            "Other": 0, 
+            "female": 162, 
+            "male": 944
+        }, 
+        "count_grades": {
+            "NA": 10218, 
+            "Other": 3, 
+            "female": 16914, 
+            "male": 72957
+        }, 
+        "count_grades_overzero": {
+            "NA": 10218, 
+            "Other": 3, 
+            "female": 16914, 
+            "male": 72957
+        }, 
+        "sum_grades": {
+            "NA": 180.0, 
+            "Other": 0.0, 
+            "female": 162.0, 
+            "male": 944.0
+        }, 
+        "sum_grades_overzero": {
+            "NA": 180.0, 
+            "Other": 0.0, 
+            "female": 162.0, 
+            "male": 944.0
+        }, 
+        "total": {
+            "NA": 10222, 
+            "Other": 8, 
+            "female": 17215, 
+            "male": 73314
+        }, 
+        "uncertified": {
+            "NA": 10042, 
+            "Other": 8, 
+            "female": 17053, 
+            "male": 72370
+        }
+    }, 
+    {
+        "_course": "The Ancient Greek Hero", 
+        "_term": "Spring", 
+        "avg_grades": {
+            "NA": 0.02, 
+            "Other": "NA", 
+            "female": 0.02, 
+            "male": 0.02
+        }, 
+        "avg_grades_overzero": {
+            "NA": 0.02, 
+            "Other": "NA", 
+            "female": 0.02, 
+            "male": 0.02
+        }, 
+        "certified": {
+            "NA": 51, 
+            "Other": 0, 
+            "female": 147, 
+            "male": 186
+        }, 
+        "count_grades": {
+            "NA": 2846, 
+            "Other": 0, 
+            "female": 9527, 
+            "male": 11123
+        }, 
+        "count_grades_overzero": {
+            "NA": 2846, 
+            "Other": 0, 
+            "female": 9527, 
+            "male": 11123
+        }, 
+        "sum_grades": {
+            "NA": 54.750000000000014, 
+            "Other": 0, 
+            "female": 163.57000000000008, 
+            "male": 185.75000000000028
+        }, 
+        "sum_grades_overzero": {
+            "NA": 54.750000000000014, 
+            "Other": 0, 
+            "female": 163.57000000000008, 
+            "male": 185.75000000000028
+        }, 
+        "total": {
+            "NA": 3596, 
+            "Other": 0, 
+            "female": 11462, 
+            "male": 13535
+        }, 
+        "uncertified": {
+            "NA": 3545, 
+            "Other": 0, 
+            "female": 11315, 
+            "male": 13349
+        }
+    }, 
+    {
+        "_course": "JusticeX", 
+        "_term": "Spring", 
+        "avg_grades": {
+            "NA": 0.06, 
+            "Other": "NA", 
+            "female": 0.04, 
+            "male": 0.05
+        }, 
+        "avg_grades_overzero": {
+            "NA": 0.06, 
+            "Other": "NA", 
+            "female": 0.04, 
+            "male": 0.05
+        }, 
+        "certified": {
+            "NA": 304, 
+            "Other": 0, 
+            "female": 711, 
+            "male": 1329
+        }, 
+        "count_grades": {
+            "NA": 4880, 
+            "Other": 0, 
+            "female": 16499, 
+            "male": 25556
+        }, 
+        "count_grades_overzero": {
+            "NA": 4880, 
+            "Other": 0, 
+            "female": 16499, 
+            "male": 25556
+        }, 
+        "sum_grades": {
+            "NA": 298.3300000000003, 
+            "Other": 0, 
+            "female": 707.5699999999948, 
+            "male": 1302.0499999999813
+        }, 
+        "sum_grades_overzero": {
+            "NA": 298.3300000000003, 
+            "Other": 0, 
+            "female": 707.5699999999948, 
+            "male": 1302.0499999999813
+        }, 
+        "total": {
+            "NA": 5777, 
+            "Other": 0, 
+            "female": 19267, 
+            "male": 29677
+        }, 
+        "uncertified": {
+            "NA": 5473, 
+            "Other": 0, 
+            "female": 18556, 
+            "male": 28348
+        }
+    }, 
+    {
+        "_course": "Elements of structures", 
+        "_term": "Spring", 
+        "avg_grades": {
+            "NA": 0.07, 
+            "Other": "NA", 
+            "female": 0.06, 
+            "male": 0.05
+        }, 
+        "avg_grades_overzero": {
+            "NA": 0.07, 
+            "Other": "NA", 
+            "female": 0.06, 
+            "male": 0.05
+        }, 
+        "certified": {
+            "NA": 79, 
+            "Other": 0, 
+            "female": 10, 
+            "male": 158
+        }, 
+        "count_grades": {
+            "NA": 1253, 
+            "Other": 0, 
+            "female": 179, 
+            "male": 3646
+        }, 
+        "count_grades_overzero": {
+            "NA": 1253, 
+            "Other": 0, 
+            "female": 179, 
+            "male": 3646
+        }, 
+        "sum_grades": {
+            "NA": 88.13999999999996, 
+            "Other": 0, 
+            "female": 10.400000000000002, 
+            "male": 189.04000000000056
+        }, 
+        "sum_grades_overzero": {
+            "NA": 88.13999999999996, 
+            "Other": 0, 
+            "female": 10.400000000000002, 
+            "male": 189.04000000000056
+        }, 
+        "total": {
+            "NA": 1369, 
+            "Other": 0, 
+            "female": 227, 
+            "male": 3954
+        }, 
+        "uncertified": {
+            "NA": 1290, 
+            "Other": 0, 
+            "female": 217, 
+            "male": 3796
+        }
+    }, 
+    {
+        "_course": "Circuits & Electronics", 
+        "_term": "Spring", 
+        "avg_grades": {
+            "NA": 0.04, 
+            "Other": "NA", 
+            "female": 0.05, 
+            "male": 0.04
+        }, 
+        "avg_grades_overzero": {
+            "NA": 0.04, 
+            "Other": "NA", 
+            "female": 0.05, 
+            "male": 0.04
+        }, 
+        "certified": {
+            "NA": 106, 
+            "Other": 0, 
+            "female": 52, 
+            "male": 434
+        }, 
+        "count_grades": {
+            "NA": 3318, 
+            "Other": 0, 
+            "female": 1110, 
+            "male": 11209
+        }, 
+        "count_grades_overzero": {
+            "NA": 3318, 
+            "Other": 0, 
+            "female": 1110, 
+            "male": 11209
+        }, 
+        "sum_grades": {
+            "NA": 121.36999999999989, 
+            "Other": 0, 
+            "female": 50.45999999999998, 
+            "male": 440.7999999999966
+        }, 
+        "sum_grades_overzero": {
+            "NA": 121.36999999999989, 
+            "Other": 0, 
+            "female": 50.45999999999998, 
+            "male": 440.7999999999966
+        }, 
+        "total": {
+            "NA": 3905, 
+            "Other": 0, 
+            "female": 1403, 
+            "male": 14282
+        }, 
+        "uncertified": {
+            "NA": 3799, 
+            "Other": 0, 
+            "female": 1351, 
+            "male": 13848
+        }
+    }, 
+    {
+        "_course": "Intro to Solid State Chemistry", 
+        "_term": "Spring", 
+        "avg_grades": {
+            "NA": 0.03, 
+            "Other": "NA", 
+            "female": 0.03, 
+            "male": 0.04
+        }, 
+        "avg_grades_overzero": {
+            "NA": 0.03, 
+            "Other": "NA", 
+            "female": 0.03, 
+            "male": 0.04
+        }, 
+        "certified": {
+            "NA": 30, 
+            "Other": 0, 
+            "female": 19, 
+            "male": 89
+        }, 
+        "count_grades": {
+            "NA": 1235, 
+            "Other": 0, 
+            "female": 680, 
+            "male": 2730
+        }, 
+        "count_grades_overzero": {
+            "NA": 1235, 
+            "Other": 0, 
+            "female": 680, 
+            "male": 2730
+        }, 
+        "sum_grades": {
+            "NA": 37.410000000000004, 
+            "Other": 0, 
+            "female": 19.099999999999998, 
+            "male": 96.77000000000027
+        }, 
+        "sum_grades_overzero": {
+            "NA": 37.410000000000004, 
+            "Other": 0, 
+            "female": 19.099999999999998, 
+            "male": 96.77000000000027
+        }, 
+        "total": {
+            "NA": 1373, 
+            "Other": 0, 
+            "female": 800, 
+            "male": 3185
+        }, 
+        "uncertified": {
+            "NA": 1343, 
+            "Other": 0, 
+            "female": 781, 
+            "male": 3096
+        }
+    }, 
+    {
+        "_course": "Intro to CS & Programming", 
+        "_term": "Spring", 
+        "avg_grades": {
+            "NA": 0.05, 
+            "Other": "NA", 
+            "female": 0.03, 
+            "male": 0.03
+        }, 
+        "avg_grades_overzero": {
+            "NA": 0.05, 
+            "Other": "NA", 
+            "female": 0.03, 
+            "male": 0.03
+        }, 
+        "certified": {
+            "NA": 257, 
+            "Other": 0, 
+            "female": 123, 
+            "male": 873
+        }, 
+        "count_grades": {
+            "NA": 5858, 
+            "Other": 0, 
+            "female": 5482, 
+            "male": 32913
+        }, 
+        "count_grades_overzero": {
+            "NA": 5858, 
+            "Other": 0, 
+            "female": 5482, 
+            "male": 32913
+        }, 
+        "sum_grades": {
+            "NA": 315.3899999999999, 
+            "Other": 0, 
+            "female": 155.40999999999977, 
+            "male": 1119.1599999999519
+        }, 
+        "sum_grades_overzero": {
+            "NA": 315.3899999999999, 
+            "Other": 0, 
+            "female": 155.40999999999977, 
+            "male": 1119.1599999999519
+        }, 
+        "total": {
+            "NA": 6458, 
+            "Other": 0, 
+            "female": 6417, 
+            "male": 37989
+        }, 
+        "uncertified": {
+            "NA": 6201, 
+            "Other": 0, 
+            "female": 6294, 
+            "male": 37116
+        }
+    }
+]
