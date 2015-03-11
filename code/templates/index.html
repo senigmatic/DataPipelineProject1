@@ -292,6 +292,34 @@ var courseDistri = [
 //    							});
 
 //crsDataCheck.append("label").text(function(d) {return d;});
+
+  d3.selectAll("input[name='demographics1']")
+  .on("click", filterDemog);
+
+  function filterDemog()
+  {
+  	   try {
+	    d3.select("#tab3").selectAll("svg")
+	       .remove();
+
+	    checkDemog();
+
+	    //update();
+	    } catch (e) {
+	        window.location.reload();
+    }
+  }
+
+  function checkDemog()
+  {
+  	var ageState = document.getElementById("age").checked;
+  	var eduState = document.getElementById("edu").checked;
+  	var genderState = document.getElementById("gender").checked;
+  	var cntryState = document.getElementById("cntry").checked;
+
+  	console.log(ageState);
+  }
+
 </script>
 
 </center>

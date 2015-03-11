@@ -232,4 +232,6 @@ div.bar {
   
   .infoBox{font-size:14px;}
   
-.choiceDiv{border-style: solid; width:270px;float: left;height:100px;padding:10px}  
+.choiceDiv{border-style: solid; border-color:#333333; width:270px;float: left;height:100px;padding:10px}  
+#tab3-pi{float:left;width:450px}
+#tab3-bar{float:left;width:450px}
