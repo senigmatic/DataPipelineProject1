@@ -1,0 +1,901 @@
+<!doctype html>
+
+<meta charset="utf-8">
+<head>
+<title>Project 1</title>
+ 
+<script src="http://www.d3plus.org/js/d3.js"></script>
+<script src="http://www.d3plus.org/js/d3plus.js"></script>
+
+  <link href="stylesheets/tabs.css" rel="stylesheet" type="text/css"/>
+  <script type="text/javascript" src="d3/d3.js"></script>
+    <script type="text/javascript" src="d3/crossfilter.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
+<!--<script src="d3/box.js"></script>-->
+  
+  <script>
+  $(function() {
+    $( "#tabs" ).tabs();
+  });
+  </script>
+  <script>
+  function postRequest(parameters)
+  {
+  var xmlhttp;
+  if (window.XMLHttpRequest)
+    {// code for IE7+, Firefox, Chrome, Opera, Safari
+    xmlhttp=new XMLHttpRequest();
+    }
+  else
+    {// code for IE6, IE5
+    xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+    }
+  xmlhttp.onreadystatechange=function()
+    {
+    if (xmlhttp.readyState==4 && xmlhttp.status==200)
+      {
+      }
+    }
+  xmlhttp.open("POST",url,true);
+  xmlhttp.send();
+}
+  </script>
+
+</head>
+<body>
+<center>
+<div id="tabs" style="width:960px; ">
+	<ul>
+		<li><a href="#tabs-1">Data Analysis</a></li>
+		<li><a href="#tabs-2">Scatter Plot</a></li>
+		<li><a href="#tabs-3">Missing Data</a></li>
+
+	</ul>
+  	<div id="tabs-1">
+		<div id="tab1"></div>
+ 	</div>
+  	<div id="tabs-2">
+    	<div id="tab2">
+    		</div>
+	</div>
+  <div id="tabs-3">
+		<div id="tab3">
+
+					<div style = "width:100%;float:left;margin:10px">
+						Select a course: <select id="select1"></select>
+					</div>
+
+
+					<div class="choiceDiv" id="demographics">
+						<h3>Demographics</h3>
+						<span  style="float:left"><input type="radio" name="demographics1" value="age" id="age" checked> Age</span><br><br>
+						<span  style="float:left"><input type="radio" name="demographics1" value="edu" id="edu"> Education Level</span><br><br>
+						<span  style="float:left"><input type="radio" name="demographics1" value="gender" id="gender"> Gender</span><br><br>
+						<span  style="float:left"><input type="radio" name="demographics1" value="cntry" id="cntry"> Country</span>
+					</div>
+					<div class="choiceDiv" id="outcome">
+						<h3>Result</h3>
+						<span  style="float:left"><input type="checkbox" name="outcome1" value="certi" id="certi" checked> Certification</span><br><br>
+						<span  style="float:left"><input type="checkbox" name="outcome1" value="grade" id="grade" checked> Grade</span>
+					</div>
+					<div class="choiceDiv" id="missing">
+						<h3>Missing Data</h3>
+						<span  style="float:left"><input type="radio" name="missing1" value="other" checked>Show as Other category</span><br><br>
+						<span  style="float:left"><input type="radio" name="missing1" value="remove">Remove Missing Data</span><br><br>
+						<!--span  style="float:left"><input type="radio" name="missing1" value="distribute">Distribute Equally</span><br><br-->
+						<span  style="float:left"><input type="radio" name="missing1" value="distributeAvg">Distribute by Ratio</span><br><br>
+						<span  style="float:left"><input type="radio" name="missing1" value="predict">Pridict and Impute</span>
+					</div>
+
+					<div id="tab3-pi"></div>
+					<div id="tab3-bar"></div>
+					<div id="tab3-box"></div>
+
+		</div>
+
+
+	</div>
+</div>
+
+<script>
+var currDemog = "A";
+var options = ["Education Level","Country","Gender","Age"];
+var courses  = [
+					"CB22X - The Ancient Greek Hero - Spring 2013"
+					,"CS50X - Introduction to Computer Science I - Fall 2012"
+					,"ER22X - Justice - Spring2013"
+					,"PH2017X - Health in Numbers: Quantitative Methods in Clinical & Public Health Research - Fall 2012"
+					,"PH 278X - Human Health and Global Environmental Change - Summer 2013"
+					,"14.73x - The Challenges of Global Poverty - Spring 2013"
+					,"2.01x - Elements of Structures - Spring 2013"
+					,"3.091x - Introduction to Solid State Chemistry - Fall 2012"
+					,"3.091x - Introduction to Solid State Chemistry - Spring 2013"
+					,"6.002x - Circuits and Electronics - Fall 2012"
+					,"6.002x - Circuits and Electronics - Spring 2013"
+					,"6.00x - Introduction to Computer Science and Programming - Fall 2012"
+					,"6.00x - Introduction to Computer Science and Programming - Spring 2013"
+					,"7.00x - Introduction to Biology - The secret to Life - Spring 2013"
+					,"8.02x - Electricity and Magnetism - Spring 2013"
+					,"8.MReV - Mechanics Review - Spring 2013"
+				];
+
+var courses_short  = [
+					"The Ancient Greek Hero"
+					,"Introduction to CS 1"
+					,"JusticeX"
+					,"Health in Numbers"
+					,"Human Health & Global Environmental  Change"
+					,"The Challenges of Global Poverty"
+					,"Elements of structures"
+					,"Intro to Solid State Chemistry"
+					//,"Introduction to Solid State Chemistry"
+					,"Circuits & Electronics"
+					//,"Circuits and Electronics"
+					,"Intro to CS & Programming"
+					//,"Introduction to Computer Science and Programming"
+					,"Intro to Biology"
+					,"Electricity & Magnetism"
+					,"Mechanics ReView"
+				];
+
+
+//d3.select("#tab3").append("div").attr("style","float:left;width:960px").text("Select a course");
+var currentCourse = "The Ancient Greek Hero";
+var selectCrs = d3.select("#tab3").select("#select1")
+       .on("change", function() {
+		         changeCrs(this.options[this.selectedIndex].__data__);
+		     })
+		     .selectAll("option")
+		     .data(courses_short).enter()
+		     .append("option")
+		     .text(function(d) {
+		         return d;
+    })
+    .on("load",changeCrs(currentCourse));
+function changeCrs(crs) {
+
+ console.log(crs);
+ currentCourse = crs;
+ update(currDemog);
+ visualizeit();
+}
+
+var courseDistri = [
+						 {'course':'CB22X - The Ancient Greek Hero - Spring 2013','registrations':28593}
+						,{'course':'CS50X - Introduction to Computer Science I - Fall 2012','registrations':100759}
+						,{'course':'ER22X - Justice - Spring2013','registrations':54721}
+						,{'course':'PH207X - Health in Numbers: Quantitative Methods in Clinical & Public Health Research - Fall 2012','registrations':41271}
+						,{'course':'PH 278X - Human Health and Global Environmental Change - Summer 2013','registrations':35494}
+						,{'course':'14.73x - The Challenges of Global Poverty - Spring 2013','registrations':25192}
+						,{'course':'2.01x - Elements of Structures - Spring 2013','registrations':5500}
+						,{'course':'3.091x - Introduction to Solid State Chemistry - Fall 2012','registrations':13939}
+						,{'course':'3.091x - Introduction to Solid State Chemistry - Spring 2013','registrations':5358}
+						,{'course':'6.002x - Circuits and Electronics - Fall 2012','registrations':39075}
+						,{'course':'6.002x - Circuits and Electronics - Spring 2013','registrations':19590}
+						,{'course':'6.00x - Introduction to Computer Science and Programming - Fall 2012','registrations':66151}
+						,{'course':'6.00x - Introduction to Computer Science and Programming - Spring 2013','registrations':50864}
+						,{'course':'7.00x - Introduction to Biology - The secret to Life - Spring 2013','registrations':19566}
+						,{'course':'8.02x - Electricity and Magnetism - Spring 2013','registrations':25969}
+						,{'course':'8.MReV - Mechanics Review - Spring 2013','registrations':8885}
+						]
+
+//var demographicsFilter = ["Age","Gender","Education Level","Country"]
+
+//var crsDataCheck = d3.select("#demographics").data(demographicsFilter).enter().append("span");
+//crsDataCheck.append("input").attr({
+//										type: "radio",
+//										class: "shape",
+//										name: "mode",
+//										value: function(d, i) {return i;}
+//    							});
+
+//crsDataCheck.append("label").text(function(d) {return d;});
+
+  d3.selectAll("input[name='demographics1']")
+  .on("click", filterDemog);
+
+
+  function filterDemog()
+  {
+  	   try {
+	    d3.select("#tab3").selectAll("svg")
+	       .remove();
+
+	    checkDemog();
+
+	    //update();
+	    } catch (e) {
+	        window.location.reload();
+    }
+  }
+
+  function checkDemog()
+  {
+  	var ageState = document.getElementById("age").checked;
+  	var eduState = document.getElementById("edu").checked;
+  	var genderState = document.getElementById("gender").checked;
+  	var cntryState = document.getElementById("cntry").checked;
+
+  	if(ageState)
+  	{
+  		update("A");
+  		currDemog = "A";
+  	}
+  	else if(eduState)
+  	{
+  		update("E");
+  		currDemog = "E";
+  	}
+  	else if(genderState)
+  	{
+  		update("G");
+  		currDemog = "G";
+  	}
+  	else
+  	{
+  		update("C");
+  		currDemog = "C";
+  	}
+
+  }
+  		var dataDisp;
+
+  function update(demog)
+  {
+  	console.log(demog);
+
+  	//load data from json here
+  	if (demog == "A")
+  	{
+		d3.json("data/age_data.json", function(error,json) {
+  		if (error) return console.warn(error);
+  			dataDisp = json;
+			visualizeit();
+		});
+  	}
+  	else if (demog == "E")
+  	{
+  		d3.json("data/edu_data.json", function(error,json) {
+	  		if (error) return console.warn(error);
+	  			dataDisp = json;
+				visualizeit();
+		});
+  	}
+  	else if (demog == "G")
+  	{
+  		d3.json("data/gender_data.json", function(error,json) {
+	  		if (error) return console.warn(error);
+	  			dataDisp = json;
+				visualizeit();
+		});
+  	}
+  	else if (demog == "C")
+  	{
+  		d3.json("data/country_data.json", function(error,json) {
+	  		if (error) return console.warn(error);
+	  			dataDisp = json;
+				visualizeit();
+		});
+  	}
+
+
+  }
+function visualizeit()
+{
+	console.log(dataDisp);
+	console.log(currentCourse);
+	d3.select("#tab3").selectAll("svg").remove();
+	try{
+	dataDisp.forEach(function(d)
+	{
+		if(d._course === currentCourse)
+		{
+			var piData = d;
+			drawPi(piData);
+
+
+		}
+	});
+	}catch(e){}
+}
+
+var ageCategory = ["14 to 19","20 to 24","25-29","30 to 39","40-49","5 and under","50-59","60-69","70 and above","9 to 13","NA"];
+
+
+
+function drawBar(barData)
+{
+	var barCert = [];
+	drawBox(barData);
+	if(typeof (barData[0].certified)!='undefined')
+	{
+		var tempC = {};
+		var tempU = {};
+		tempC['y'] = parseInt(barData[0].certified);
+		tempU['y'] = parseInt(barData[0].uncertified);
+		tempC['x'] = "Certified";
+		tempU['x']= "uncertified";
+		barCert.push(tempC);
+		barCert.push(tempU);
+	}
+
+
+
+console.log(barCert);
+d3.select("#tab3-bar").selectAll("svg").remove();
+ var vis = d3.select('#tab3-bar').append("svg").attr("width", 400)
+              .attr("height", 300),
+    WIDTH = 300,
+    HEIGHT = 300,
+    MARGINS = {
+      top: 20,
+      right: 20,
+      bottom: 20,
+      left: 50
+    },
+    xRange = d3.scale.ordinal().rangeRoundBands([MARGINS.left, WIDTH - MARGINS.right], 0.1).domain(barCert.map(function (d) {
+      return d.x;
+    })),
+
+
+    yRange = d3.scale.linear().range([HEIGHT - MARGINS.top, MARGINS.bottom]).domain([0,
+      d3.max(barCert, function (d) {
+        return d.y;
+      })
+    ]),
+
+    xAxis = d3.svg.axis()
+      .scale(xRange)
+      .tickSize(5)
+      .tickSubdivide(true),
+
+    yAxis = d3.svg.axis()
+      .scale(yRange)
+      .tickSize(5)
+      .orient("left")
+      .tickSubdivide(true);
+
+
+  vis.append('svg:g')
+    .attr('class', 'x axis')
+    .attr('transform', 'translate(0,' + (HEIGHT - MARGINS.bottom) + ')')
+    .call(xAxis);
+
+  vis.append('svg:g')
+    .attr('class', 'y axis')
+    .attr('transform', 'translate(' + (MARGINS.left) + ',0)')
+    .call(yAxis);
+
+  vis.selectAll('rect')
+    .data(barCert)
+    .enter()
+    .append('rect')
+    .attr('x', function (d) {
+      return xRange(d.x);
+    })
+    .attr('y', function (d) {
+      return yRange(d.y);
+    })
+    .attr('width', xRange.rangeBand())
+    .attr('height', function (d) {
+      return ((HEIGHT - MARGINS.bottom) - yRange(d.y));
+    })
+    .attr('fill', 'grey')
+    .on('mouseover',function(d){
+      d3.select(this)
+        .attr('fill','blue');
+    })
+    .on('mouseout',function(d){
+      d3.select(this)
+        .attr('fill','grey');
+    });
+
+
+
+
+
+
+
+
+
+
+
+	/*d3.select("#tab3-bar").selectAll("svg").remove();
+	var width = 360,
+	    height = 180;
+
+var x = d3.scale.ordinal().rangeRoundBands([0, width], .1);
+	var y = d3.scale.linear().range([height, 0]);
+
+var chart = d3.select("#tab3-bar")
+              .append("svg")  //append svg element inside #chart
+              .attr("width", width+(2*margin.left)+margin.right)
+              .attr("height", height+margin.top+margin.bottom);
+
+
+    var xAxis = d3.svg.axis()
+	              .scale(x)
+	              .orient("bottom");  //orient bottom because x-axis will appear below the bars
+
+	var yAxis = d3.svg.axis()
+	              .scale(y)
+              .orient("left");
+
+
+
+
+    var barWidth = width / barCert.length;
+console.log(barWidth);
+    var bar = chart.selectAll("g")
+      .data(barCert)
+      .enter().append("g")
+      .attr("transform", function(d, i) { return "translate(" + i * barWidth + ",0)"; });
+
+      bar.append("rect")
+	        .attr("y", function(d) { console.log();return y(d.value); })
+	        .attr("height", function(d) { return height - y(d.value); })
+	        .attr("width", barWidth - 1);
+
+*/
+
+	/*var margin = {top: 20, right: 20, bottom: 30, left: 40}, barConfig = {width: 600 - margin.left - margin.right, height: 400 - margin.top - margin.bottom};
+
+	d3.select("#tab3-bar").selectAll("svg").remove();
+	var barChart = d3.select("#tab3-bar").append("svg")
+	 .attr("width", barConfig.width + margin.left + margin.right)
+	     .attr("height", barConfig.height + margin.top + margin.bottom)
+	     .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+ var x = d3.scale.ordinal()
+     .rangeRoundBands([0, barConfig.width], .1);
+
+ var y = d3.scale.linear()
+    .range([barConfig.height, 0]);
+
+ var xAxis = d3.svg.axis()
+     .scale(x)
+     .orient("bottom");
+
+ var yAxis = d3.svg.axis()
+     .scale(y)
+    .orient("left");
+
+	console.log(barCert)
+    barChart.append("g")
+	      .attr("class", "x axis")
+	       .attr("transform", "translate(0," + barConfig.height + ")")
+      		.call(xAxis);
+
+	  barChart.append("g")
+	      .attr("class", "y axis")
+	      .call(yAxis)
+	    .append("text")
+	      .attr("transform", "rotate(-90)")
+	      .attr("y", 6)
+	      .attr("dy", ".71em")
+	      .style("text-anchor", "end")
+	      .text("");
+
+	  barChart.selectAll(".bar")
+	      .data(barCert)
+	  .enter().append("rect")
+	        .attr("class", "bar")
+	        .attr("x", function(d) { return x(d.key); })
+	        .attr("width", x.rangeBand())
+	        .attr("y", function(d) { return y(d.value); })
+      .attr("height", function(d) { return barConfig.height - y(d.value); });*/
+
+}
+
+function drawPi(piData)
+{
+	var newData = []
+	for(key in piData.total)
+	{
+		var dataPut = {};
+		dataPut["ageRange"] = key;
+		dataPut["count"] = piData.total[key];
+
+		newData.push(dataPut);
+		//console.log(key, piData.total[key]);
+	}
+		var width = 540,
+			height = 500;
+
+
+		var outerRadius = height / 2 - 80,
+			innerRadius = outerRadius / 3,
+			cornerRadius = 10;
+
+		var pie = d3.layout.pie()
+			.value(function(d){return d.count;})
+			.padAngle(.02);
+
+		var arc = d3.svg.arc()
+			.padRadius(outerRadius)
+			.innerRadius(innerRadius);
+
+		var svg = d3.select("#tab3-pi").append("svg")
+		.attr("width", width)
+		.attr("height", height)
+		.append("g")
+		.attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+
+
+		var color = d3.scale
+			.ordinal()
+			.range(["#ddccbb", "#ccddbb", "#bbddcc", "#ccbbaa", "#bbaacc", "#aabbcc","#99bbdd","#bb99dd","#ddbb99","#ddbbcc","#ccbbdd","#bbccdd"]);
+
+			//console.log(newData);
+
+		var barData = [];
+
+			var path = svg.selectAll("path")
+			.data(pie(newData))
+			.enter().append("path")
+			.each(function(d)
+				{
+				//	console.log(d.data.ageRange);
+				//	console.log(piData.certified[d.data.ageRange])
+					var temp = {};
+					temp["ageRange"] = d.data.ageRange;
+					temp["certified"] = piData.certified[d.data.ageRange];
+					temp["uncertified"] = piData.uncertified[d.data.ageRange];
+					barData.push(temp);
+					d.outerRadius = outerRadius - 20;
+
+			})
+			.attr("d", arc)
+			.style("fill", function(d, i) { return color(i); })
+			.on("mouseover", arcTween(outerRadius, 50,barData))
+			.on("mouseout", arcTween(outerRadius - 20, 0,""))
+			.text(function(d, i) {
+    return newData[i].ageRange;})
+			;
+
+
+
+
+			function arcTween(outerRadius, delay,barData) {
+			return function() {
+
+
+				d3.select(this).transition().delay(delay).attrTween("d", function(d) {
+			//	console.log(barData);
+			//	console.log(d);
+				var sendToBar = [];
+				for(dat in barData)
+				{
+					if (barData[dat].ageRange == d.data.ageRange)
+						sendToBar = [barData[dat]];
+
+				}
+				value = d.data;
+				//var percent = Math.round(((100*value )/sum)*100)/100;
+
+				if(delay!=0)
+				{
+					var xPosition = 650;
+					var yPosition = 200;
+
+					d3.select("#tooltip2")
+                   .style("left", xPosition + "px")
+                   .style("top", yPosition + "px")
+                   .select("#value")
+                   //.text(value+ "("+percent+"%)");
+					d3.select("#tooltip2").classed("hidden", false);
+
+					drawBar(sendToBar);
+
+				}
+				else
+				{
+					d3.select("#tooltip2").classed("hidden", true);
+				}
+
+
+				var i = d3.interpolate(d.outerRadius, outerRadius);
+				return function(t) { d.outerRadius = i(t); return arc(d); };
+
+				});
+
+				};
+				}
+
+
+
+}
+
+</script>
+
+</center>
+<div id="viz"></div>
+ 
+ <script>
+ 
+ <!--HARD CODED DATA STARTS HERE WILL DELETE -->
+   var data = [  {
+                "age": "NA", 
+                "country": "United States", 
+                "edu": "NA", 
+                "gender": "NA", 
+                "grade": 98.0, 
+                "id": "MHxPC130543225"
+            }, 
+            {
+                "age": "NA", 
+                "country": "United Kingdom", 
+                "edu": "NA", 
+                "gender": "NA", 
+                "grade": 98.0, 
+                "id": "MHxPC130211913"
+            }, 
+            {
+                "age": "NA", 
+                "country": "United States", 
+                "edu": "NA", 
+                "gender": "NA", 
+                "grade": 98.0, 
+                "id": "MHxPC130520746"
+            }, 
+            {
+                "age": "NA", 
+                "country": "United States", 
+                "edu": "NA", 
+                "gender": "NA", 
+                "grade": 98.0, 
+                "id": "MHxPC130507617"
+            }, 
+            {
+                "age": "NA", 
+                "country": "India", 
+                "edu": "NA", 
+                "gender": "NA", 
+                "grade": 98.0, 
+                "id": "MHxPC130305043"
+            }, 
+            {
+                "age": "NA", 
+                "country": "Canada", 
+                "edu": "NA", 
+                "gender": "NA", 
+                "grade": 98.0, 
+                "id": "MHxPC130550170"
+            }, 
+            {
+                "age": "NA", 
+                "country": "Other Europe", 
+                "edu": "NA", 
+                "gender": "NA", 
+                "grade": 98.0, 
+                "id": "MHxPC130566059"
+            }, 
+            {
+                "age": "NA", 
+                "country": "United States", 
+                "edu": "NA", 
+                "gender": "NA", 
+                "grade": 98.0, 
+                "id": "MHxPC130304717"
+            }, 
+            {
+                "age": "NA", 
+                "country": "India", 
+                "edu": "NA", 
+                "gender": "NA", 
+                "grade": 98.0, 
+                "id": "MHxPC130115656"
+            }, 
+            {
+                "age": "NA", 
+                "country": "Russian Federation", 
+                "edu": "NA", 
+                "gender": "NA", 
+                "grade": 98.0, 
+                "id": "MHxPC130567097"
+            }, 
+            {
+                "age": "NA", 
+                "country": "Spain", 
+                "edu": "NA", 
+                "gender": "NA", 
+                "grade": 99.0, 
+                "id": "MHxPC130486003"
+            }, 
+            {
+                "age": "NA", 
+                "country": "United States", 
+                "edu": "NA", 
+                "gender": "NA", 
+                "grade": 99.0, 
+                "id": "MHxPC130190646"
+            }, 
+            {
+                "age": "NA", 
+                "country": "United States", 
+                "edu": "NA", 
+                "gender": "NA", 
+                "grade": 99.0, 
+                "id": "MHxPC130579685"
+            }, 
+            {
+                "age": "NA", 
+                "country": "United States", 
+                "edu": "NA", 
+                "gender": "NA", 
+                "grade": 99.0, 
+                "id": "MHxPC130433660"
+            }, 
+            {
+                "age": "NA", 
+                "country": "Spain", 
+                "edu": "NA", 
+                "gender": "NA", 
+                "grade": 99.0, 
+                "id": "MHxPC130397993"
+            }, 
+            {
+                "age": "NA", 
+                "country": "India", 
+                "edu": "NA", 
+                "gender": "NA", 
+                "grade": 99.0, 
+                "id": "MHxPC130395084"
+            }, 
+            {
+                "age": "NA", 
+                "country": "United States", 
+                "edu": "NA", 
+                "gender": "NA", 
+                "grade": 99.0, 
+                "id": "MHxPC130519526"
+            }, 
+            {
+                "age": "NA", 
+                "country": "Mexico", 
+                "edu": "NA", 
+                "gender": "NA", 
+                "grade": 99.0, 
+                "id": "MHxPC130232584"
+            }, 
+            {
+                "age": "NA", 
+                "country": "Poland", 
+                "edu": "NA", 
+                "gender": "NA", 
+                "grade": 99.0, 
+                "id": "MHxPC130218707"
+            }, 
+            {
+                "age": "NA", 
+                "country": "Ukraine", 
+                "edu": "NA", 
+                "gender": "NA", 
+                "grade": 99.0, 
+                "id": "MHxPC130295862"
+            }, 
+            {
+                "age": "NA", 
+                "country": "United Kingdom", 
+                "edu": "NA", 
+                "gender": "NA", 
+                "grade": 100.0, 
+                "id": "MHxPC130226097"
+            }, 
+            {
+                "age": "NA", 
+                "country": "Poland", 
+                "edu": "NA", 
+                "gender": "NA", 
+                "grade": 100.0, 
+                "id": "MHxPC130045473"
+            }, 
+            {
+                "age": "NA", 
+                "country": "Other Europe", 
+                "edu": "NA", 
+                "gender": "NA", 
+                "grade": 100.0, 
+                "id": "MHxPC130423348"
+            }, 
+            {
+                "age": "NA", 
+                "country": "United Kingdom", 
+                "edu": "NA", 
+                "gender": "NA", 
+                "grade": 100.0, 
+                "id": "MHxPC130531075"
+            }, 
+            {
+                "age": "NA", 
+                "country": "Other South America", 
+                "edu": "NA", 
+                "gender": "NA", 
+                "grade": 100.0, 
+                "id": "MHxPC130148952"
+            },
+            {
+                "age": "14-19", 
+                "country": "United States", 
+                "edu": "Less than Secondary", 
+                "gender": "male", 
+                "grade": 5.0, 
+                "id": "MHxPC130089512"
+            }, 
+            {
+                "age": "14-19", 
+                "country": "United States", 
+                "edu": "Less than Secondary", 
+                "gender": "male", 
+                "grade": 5.0, 
+                "id": "MHxPC130015635"
+            }, 
+            {
+                "age": "14-19", 
+                "country": "United States", 
+                "edu": "Less than Secondary", 
+                "gender": "female", 
+                "grade": 60.0, 
+                "id": "MHxPC130219597"
+            }, 
+            {
+                "age": "14-19", 
+                "country": "United States", 
+                "edu": "Less than Secondary", 
+                "gender": "female", 
+                "grade": 100.0, 
+                "id": "MHxPC130063283"
+            }, 
+            {
+                "age": "14-19", 
+                "country": "United States", 
+                "edu": "Less than Secondary", 
+                "gender": "female", 
+                "grade": 1.0, 
+                "id": "MHxPC130370655"
+            }, 
+            {
+                "age": "14-19", 
+                "country": "United States", 
+                "edu": "Less than Secondary", 
+                "gender": "female", 
+                "grade": 1.0, 
+                "id": "MHxPC130537313"
+            }, 
+            {
+                "age": "14-19", 
+                "country": "Canada", 
+                "edu": "Less than Secondary", 
+                "gender": "male", 
+                "grade": 1.0, 
+                "id": "MHxPC130026186"
+            }, 
+            {
+                "age": "14-19", 
+                "country": "United States", 
+                "edu": "Less than Secondary", 
+                "gender": "female", 
+                "grade": 2.0, 
+                "id": "MHxPC130340790"
+            }
+        ]
+
+<!--HARD CODED DATA ENDS HERE WILL DELETE-->
+
+  var visualization = d3plus.viz()
+    .container("#viz")
+    .data(data)
+    .type("box")
+    .id("id")
+    .x("age")
+    .y("grade")
+   
+    .draw()
+
+</script>
+</body>
+</html>
+ 

@@ -1,0 +1,393 @@
+<!doctype html>
+
+<meta charset="utf-8">
+<head>
+<title>Project 1</title>
+ 
+<script src="http://www.d3plus.org/js/d3.js"></script>
+<script src="http://www.d3plus.org/js/d3plus.js"></script>
+
+  <script type="text/javascript" src="d3/d3.js"></script>
+    <script type="text/javascript" src="d3/crossfilter.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css"/>
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
+    
+    
+<div style ="width:100%;float:left;margin:10px">Select a course: 
+    <select id="select1"></select>
+</div>
+
+<div class="choiceDiv" id="demographics">
+    <h3>Demographics</h3>
+    <span  style="float:left"><input type="radio" name="demographics1" value="age" id="age" checked> Age</span><br><br>
+    <span  style="float:left"><input type="radio" name="demographics1" value="edu" id="edu"> Education Level</span><br><br>
+    <span  style="float:left"><input type="radio" name="demographics1" value="gender" id="gender"> Gender</span><br><br>
+    <span  style="float:left"><input type="radio" name="demographics1" value="cntry" id="cntry"> Country</span>
+</div>
+					
+<div class="choiceDiv" id="missing">
+    <h3>Missing Data</h3>
+    <span  style="float:left"><input type="radio" name="missing1" value="other" checked>Show as Other category</span><br><br>
+    <span  style="float:left"><input type="radio" name="missing1" value="remove">Remove Missing Data</span><br><br>
+    <!--span  style="float:left"><input type="radio" name="missing1" value="distribute">Distribute Equally</span><br><br-->
+    <span  style="float:left"><input type="radio" name="missing1" value="distributeAvg">Distribute by Ratio</span><br><br>
+    <span  style="float:left"><input type="radio" name="missing1" value="predict">Pridict and Impute</span>
+</div>
+
+</div>
+
+  
+  <div id="area1"></div>
+
+<script>
+var courses_short  = [
+					"The Ancient Greek Hero"
+					,"Introduction to CS 1"
+					,"JusticeX"
+					,"Health in Numbers"
+					,"Human Health & Global Environmental  Change"
+					,"The Challenges of Global Poverty"
+					,"Elements of structures"
+					,"Intro to Solid State Chemistry"
+					//,"Introduction to Solid State Chemistry"
+					,"Circuits & Electronics"
+					//,"Circuits and Electronics"
+					,"Intro to CS & Programming"
+					//,"Introduction to Computer Science and Programming"
+					,"Intro to Biology"
+					,"Electricity & Magnetism"
+					,"Mechanics ReView"
+				];
+				
+var currentCourse = "The Ancient Greek Hero";
+var selectCrs = d3.select("#select1")
+       .on("change", function() {
+		         changeCrs(this.options[this.selectedIndex].__data__);
+		     })
+		     .selectAll("option")
+		     .data(courses_short).enter()
+		     .append("option")
+		     .text(function(d) {
+		         return d;
+    })
+    .on("load",changeCrs(currentCourse));
+function changeCrs(crs) {
+
+ console.log(crs);
+ currentCourse = crs;
+ update(currDemog);
+ }
+ </script>
+ 
+<script>
+
+var category="name";
+var course = "??";
+
+  var data = [
+    {"value": 100, "name": "alpha"},
+    {"value": 70, "name": "beta"},
+    {"value": 40, "name": "gamma"},
+    {"value": 15, "name": "delta"},
+    {"value": 5, "name": "epsilon"},
+    {"value": 1, "name": "zeta"}
+  ]
+
+
+  d3plus.viz()
+    .container("#area1")
+    .data(data)
+    .type("pie")
+    .id(category)
+    .size("value")
+    .draw()
+
+</script>
+
+<div id="area2" style ="height:20"></div>
+<script>
+ 
+ <!--HARD CODED DATA STARTS HERE WILL DELETE -->
+   var data = [  {
+                "age": "NA", 
+                "country": "United States", 
+                "edu": "NA", 
+                "gender": "NA", 
+                "grade": 98.0, 
+                "id": "MHxPC130543225"
+            }, 
+            {
+                "age": "NA", 
+                "country": "United Kingdom", 
+                "edu": "NA", 
+                "gender": "NA", 
+                "grade": 98.0, 
+                "id": "MHxPC130211913"
+            }, 
+            {
+                "age": "NA", 
+                "country": "United States", 
+                "edu": "NA", 
+                "gender": "NA", 
+                "grade": 98.0, 
+                "id": "MHxPC130520746"
+            }, 
+            {
+                "age": "NA", 
+                "country": "United States", 
+                "edu": "NA", 
+                "gender": "NA", 
+                "grade": 98.0, 
+                "id": "MHxPC130507617"
+            }, 
+            {
+                "age": "NA", 
+                "country": "India", 
+                "edu": "NA", 
+                "gender": "NA", 
+                "grade": 98.0, 
+                "id": "MHxPC130305043"
+            }, 
+            {
+                "age": "NA", 
+                "country": "Canada", 
+                "edu": "NA", 
+                "gender": "NA", 
+                "grade": 98.0, 
+                "id": "MHxPC130550170"
+            }, 
+            {
+                "age": "NA", 
+                "country": "Other Europe", 
+                "edu": "NA", 
+                "gender": "NA", 
+                "grade": 98.0, 
+                "id": "MHxPC130566059"
+            }, 
+            {
+                "age": "NA", 
+                "country": "United States", 
+                "edu": "NA", 
+                "gender": "NA", 
+                "grade": 98.0, 
+                "id": "MHxPC130304717"
+            }, 
+            {
+                "age": "NA", 
+                "country": "India", 
+                "edu": "NA", 
+                "gender": "NA", 
+                "grade": 98.0, 
+                "id": "MHxPC130115656"
+            }, 
+            {
+                "age": "NA", 
+                "country": "Russian Federation", 
+                "edu": "NA", 
+                "gender": "NA", 
+                "grade": 98.0, 
+                "id": "MHxPC130567097"
+            }, 
+            {
+                "age": "NA", 
+                "country": "Spain", 
+                "edu": "NA", 
+                "gender": "NA", 
+                "grade": 99.0, 
+                "id": "MHxPC130486003"
+            }, 
+            {
+                "age": "NA", 
+                "country": "United States", 
+                "edu": "NA", 
+                "gender": "NA", 
+                "grade": 99.0, 
+                "id": "MHxPC130190646"
+            }, 
+            {
+                "age": "NA", 
+                "country": "United States", 
+                "edu": "NA", 
+                "gender": "NA", 
+                "grade": 99.0, 
+                "id": "MHxPC130579685"
+            }, 
+            {
+                "age": "NA", 
+                "country": "United States", 
+                "edu": "NA", 
+                "gender": "NA", 
+                "grade": 99.0, 
+                "id": "MHxPC130433660"
+            }, 
+            {
+                "age": "NA", 
+                "country": "Spain", 
+                "edu": "NA", 
+                "gender": "NA", 
+                "grade": 99.0, 
+                "id": "MHxPC130397993"
+            }, 
+            {
+                "age": "NA", 
+                "country": "India", 
+                "edu": "NA", 
+                "gender": "NA", 
+                "grade": 99.0, 
+                "id": "MHxPC130395084"
+            }, 
+            {
+                "age": "NA", 
+                "country": "United States", 
+                "edu": "NA", 
+                "gender": "NA", 
+                "grade": 99.0, 
+                "id": "MHxPC130519526"
+            }, 
+            {
+                "age": "NA", 
+                "country": "Mexico", 
+                "edu": "NA", 
+                "gender": "NA", 
+                "grade": 99.0, 
+                "id": "MHxPC130232584"
+            }, 
+            {
+                "age": "NA", 
+                "country": "Poland", 
+                "edu": "NA", 
+                "gender": "NA", 
+                "grade": 99.0, 
+                "id": "MHxPC130218707"
+            }, 
+            {
+                "age": "NA", 
+                "country": "Ukraine", 
+                "edu": "NA", 
+                "gender": "NA", 
+                "grade": 99.0, 
+                "id": "MHxPC130295862"
+            }, 
+            {
+                "age": "NA", 
+                "country": "United Kingdom", 
+                "edu": "NA", 
+                "gender": "NA", 
+                "grade": 100.0, 
+                "id": "MHxPC130226097"
+            }, 
+            {
+                "age": "NA", 
+                "country": "Poland", 
+                "edu": "NA", 
+                "gender": "NA", 
+                "grade": 100.0, 
+                "id": "MHxPC130045473"
+            }, 
+            {
+                "age": "NA", 
+                "country": "Other Europe", 
+                "edu": "NA", 
+                "gender": "NA", 
+                "grade": 100.0, 
+                "id": "MHxPC130423348"
+            }, 
+            {
+                "age": "NA", 
+                "country": "United Kingdom", 
+                "edu": "NA", 
+                "gender": "NA", 
+                "grade": 100.0, 
+                "id": "MHxPC130531075"
+            }, 
+            {
+                "age": "NA", 
+                "country": "Other South America", 
+                "edu": "NA", 
+                "gender": "NA", 
+                "grade": 100.0, 
+                "id": "MHxPC130148952"
+            },
+            {
+                "age": "14-19", 
+                "country": "United States", 
+                "edu": "Less than Secondary", 
+                "gender": "male", 
+                "grade": 5.0, 
+                "id": "MHxPC130089512"
+            }, 
+            {
+                "age": "14-19", 
+                "country": "United States", 
+                "edu": "Less than Secondary", 
+                "gender": "male", 
+                "grade": 5.0, 
+                "id": "MHxPC130015635"
+            }, 
+            {
+                "age": "14-19", 
+                "country": "United States", 
+                "edu": "Less than Secondary", 
+                "gender": "female", 
+                "grade": 60.0, 
+                "id": "MHxPC130219597"
+            }, 
+            {
+                "age": "14-19", 
+                "country": "United States", 
+                "edu": "Less than Secondary", 
+                "gender": "female", 
+                "grade": 100.0, 
+                "id": "MHxPC130063283"
+            }, 
+            {
+                "age": "14-19", 
+                "country": "United States", 
+                "edu": "Less than Secondary", 
+                "gender": "female", 
+                "grade": 1.0, 
+                "id": "MHxPC130370655"
+            }, 
+            {
+                "age": "14-19", 
+                "country": "United States", 
+                "edu": "Less than Secondary", 
+                "gender": "female", 
+                "grade": 1.0, 
+                "id": "MHxPC130537313"
+            }, 
+            {
+                "age": "14-19", 
+                "country": "Canada", 
+                "edu": "Less than Secondary", 
+                "gender": "male", 
+                "grade": 1.0, 
+                "id": "MHxPC130026186"
+            }, 
+            {
+                "age": "14-19", 
+                "country": "United States", 
+                "edu": "Less than Secondary", 
+                "gender": "female", 
+                "grade": 2.0, 
+                "id": "MHxPC130340790"
+            }
+        ]
+
+<!--HARD CODED DATA ENDS HERE WILL DELETE-->
+
+  var visualization = d3plus.viz()
+    .container("#area2")
+    .data(data)
+    .type("box")
+    .id("id")
+    .x("age")
+    .y("grade")
+   
+    .draw()
+
+</script>
+</body>
+</html>
+ 

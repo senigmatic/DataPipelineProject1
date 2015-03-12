@@ -96,7 +96,7 @@ with open('/Users/akasunic/Desktop/DataPipeline/DataPipelineProject1/Harvard-MIT
                 for item in grade_array:
                     if item <lineStart or item>lineEnd:
                         course_dict['box_plot'][age_range]['outliers'].append(item)
-            del course_dict['box_plot'][age_range]['all_grades']
+            #del course_dict['box_plot'][age_range]['all_grades']
 
     for course_dict in age:
         for key in course_dict['avg_grades']:

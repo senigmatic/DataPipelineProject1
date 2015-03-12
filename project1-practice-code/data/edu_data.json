@@ -1,0 +1,1218 @@
+[
+    {
+        "_course": "Intro to Solid State Chemistry", 
+        "_term": "Fall", 
+        "avg_grades": {
+            "Bachelor's": 0.04, 
+            "Doctorate": 0.06, 
+            "Less than Secondary": 0.08, 
+            "Master's": 0.06, 
+            "NA": 0.07, 
+            "Secondary": 0.05
+        }, 
+        "avg_grades_overzero": {
+            "Bachelor's": 0.04, 
+            "Doctorate": 0.06, 
+            "Less than Secondary": 0.08, 
+            "Master's": 0.06, 
+            "NA": 0.07, 
+            "Secondary": 0.05
+        }, 
+        "certified": {
+            "Bachelor's": 141, 
+            "Doctorate": 7, 
+            "Less than Secondary": 24, 
+            "Master's": 99, 
+            "NA": 179, 
+            "Secondary": 182
+        }, 
+        "count_grades": {
+            "Bachelor's": 3800, 
+            "Doctorate": 108, 
+            "Less than Secondary": 314, 
+            "Master's": 1598, 
+            "NA": 2793, 
+            "Secondary": 4363
+        }, 
+        "count_grades_overzero": {
+            "Bachelor's": 3800, 
+            "Doctorate": 108, 
+            "Less than Secondary": 314, 
+            "Master's": 1598, 
+            "NA": 2793, 
+            "Secondary": 4363
+        }, 
+        "sum_grades": {
+            "Bachelor's": 153.94000000000008, 
+            "Doctorate": 6.669999999999998, 
+            "Less than Secondary": 23.95, 
+            "Master's": 101.31000000000016, 
+            "NA": 195.88999999999993, 
+            "Secondary": 200.61999999999972
+        }, 
+        "sum_grades_overzero": {
+            "Bachelor's": 153.94000000000008, 
+            "Doctorate": 6.669999999999998, 
+            "Less than Secondary": 23.95, 
+            "Master's": 101.31000000000016, 
+            "NA": 195.88999999999993, 
+            "Secondary": 200.61999999999972
+        }, 
+        "total": {
+            "Bachelor's": 4249, 
+            "Doctorate": 124, 
+            "Less than Secondary": 346, 
+            "Master's": 1688, 
+            "NA": 2860, 
+            "Secondary": 4672
+        }, 
+        "uncertified": {
+            "Bachelor's": 4108, 
+            "Doctorate": 117, 
+            "Less than Secondary": 322, 
+            "Master's": 1589, 
+            "NA": 2681, 
+            "Secondary": 4490
+        }
+    }, 
+    {
+        "_course": "The Challenges of Global Poverty", 
+        "_term": "Spring", 
+        "avg_grades": {
+            "Bachelor's": 0.09, 
+            "Doctorate": 0.07, 
+            "Less than Secondary": 0.08, 
+            "Master's": 0.1, 
+            "NA": 0.08, 
+            "Secondary": 0.07
+        }, 
+        "avg_grades_overzero": {
+            "Bachelor's": 0.09, 
+            "Doctorate": 0.07, 
+            "Less than Secondary": 0.08, 
+            "Master's": 0.1, 
+            "NA": 0.08, 
+            "Secondary": 0.07
+        }, 
+        "certified": {
+            "Bachelor's": 823, 
+            "Doctorate": 35, 
+            "Less than Secondary": 13, 
+            "Master's": 809, 
+            "NA": 190, 
+            "Secondary": 214
+        }, 
+        "count_grades": {
+            "Bachelor's": 9468, 
+            "Doctorate": 522, 
+            "Less than Secondary": 137, 
+            "Master's": 7712, 
+            "NA": 2557, 
+            "Secondary": 3232
+        }, 
+        "count_grades_overzero": {
+            "Bachelor's": 9468, 
+            "Doctorate": 522, 
+            "Less than Secondary": 137, 
+            "Master's": 7712, 
+            "NA": 2557, 
+            "Secondary": 3232
+        }, 
+        "sum_grades": {
+            "Bachelor's": 830.0299999999916, 
+            "Doctorate": 36.85999999999999, 
+            "Less than Secondary": 11.339999999999996, 
+            "Master's": 782.7799999999928, 
+            "NA": 201.22999999999993, 
+            "Secondary": 220.69
+        }, 
+        "sum_grades_overzero": {
+            "Bachelor's": 830.0299999999916, 
+            "Doctorate": 36.85999999999999, 
+            "Less than Secondary": 11.339999999999996, 
+            "Master's": 782.7799999999928, 
+            "NA": 201.22999999999993, 
+            "Secondary": 220.69
+        }, 
+        "total": {
+            "Bachelor's": 10068, 
+            "Doctorate": 545, 
+            "Less than Secondary": 186, 
+            "Master's": 8244, 
+            "NA": 2679, 
+            "Secondary": 3470
+        }, 
+        "uncertified": {
+            "Bachelor's": 9245, 
+            "Doctorate": 510, 
+            "Less than Secondary": 173, 
+            "Master's": 7435, 
+            "NA": 2489, 
+            "Secondary": 3256
+        }
+    }, 
+    {
+        "_course": "Mechanics ReView", 
+        "_term": "Summer", 
+        "avg_grades": {
+            "Bachelor's": 0.02, 
+            "Doctorate": 0.01, 
+            "Less than Secondary": 0.09, 
+            "Master's": 0.04, 
+            "NA": 0.05, 
+            "Secondary": 0.05
+        }, 
+        "avg_grades_overzero": {
+            "Bachelor's": 0.02, 
+            "Doctorate": 0.01, 
+            "Less than Secondary": 0.09, 
+            "Master's": 0.04, 
+            "NA": 0.05, 
+            "Secondary": 0.05
+        }, 
+        "certified": {
+            "Bachelor's": 25, 
+            "Doctorate": 0, 
+            "Less than Secondary": 23, 
+            "Master's": 23, 
+            "NA": 90, 
+            "Secondary": 136
+        }, 
+        "count_grades": {
+            "Bachelor's": 1908, 
+            "Doctorate": 44, 
+            "Less than Secondary": 317, 
+            "Master's": 770, 
+            "NA": 1950, 
+            "Secondary": 3236
+        }, 
+        "count_grades_overzero": {
+            "Bachelor's": 1908, 
+            "Doctorate": 44, 
+            "Less than Secondary": 317, 
+            "Master's": 770, 
+            "NA": 1950, 
+            "Secondary": 3236
+        }, 
+        "sum_grades": {
+            "Bachelor's": 42.879999999999995, 
+            "Doctorate": 0.33, 
+            "Less than Secondary": 27.130000000000006, 
+            "Master's": 28.350000000000005, 
+            "NA": 105.11999999999996, 
+            "Secondary": 157.07000000000005
+        }, 
+        "sum_grades_overzero": {
+            "Bachelor's": 42.879999999999995, 
+            "Doctorate": 0.33, 
+            "Less than Secondary": 27.130000000000006, 
+            "Master's": 28.350000000000005, 
+            "NA": 105.11999999999996, 
+            "Secondary": 157.07000000000005
+        }, 
+        "total": {
+            "Bachelor's": 2127, 
+            "Doctorate": 44, 
+            "Less than Secondary": 317, 
+            "Master's": 852, 
+            "NA": 2009, 
+            "Secondary": 3536
+        }, 
+        "uncertified": {
+            "Bachelor's": 2102, 
+            "Doctorate": 44, 
+            "Less than Secondary": 294, 
+            "Master's": 829, 
+            "NA": 1919, 
+            "Secondary": 3400
+        }
+    }, 
+    {
+        "_course": "Health in Numbers", 
+        "_term": "Fall", 
+        "avg_grades": {
+            "Bachelor's": 0.07, 
+            "Doctorate": 0.08, 
+            "Less than Secondary": 0.03, 
+            "Master's": 0.09, 
+            "NA": 0.05, 
+            "Secondary": 0.04
+        }, 
+        "avg_grades_overzero": {
+            "Bachelor's": 0.07, 
+            "Doctorate": 0.08, 
+            "Less than Secondary": 0.03, 
+            "Master's": 0.09, 
+            "NA": 0.05, 
+            "Secondary": 0.04
+        }, 
+        "certified": {
+            "Bachelor's": 599, 
+            "Doctorate": 155, 
+            "Less than Secondary": 3, 
+            "Master's": 887, 
+            "NA": 95, 
+            "Secondary": 102
+        }, 
+        "count_grades": {
+            "Bachelor's": 12929, 
+            "Doctorate": 2723, 
+            "Less than Secondary": 145, 
+            "Master's": 12757, 
+            "NA": 2871, 
+            "Secondary": 4056
+        }, 
+        "count_grades_overzero": {
+            "Bachelor's": 12929, 
+            "Doctorate": 2723, 
+            "Less than Secondary": 145, 
+            "Master's": 12757, 
+            "NA": 2871, 
+            "Secondary": 4056
+        }, 
+        "sum_grades": {
+            "Bachelor's": 904.8899999999882, 
+            "Doctorate": 210.61999999999946, 
+            "Less than Secondary": 4.289999999999999, 
+            "Master's": 1172.049999999987, 
+            "NA": 151.4700000000001, 
+            "Secondary": 155.44000000000003
+        }, 
+        "sum_grades_overzero": {
+            "Bachelor's": 904.8899999999882, 
+            "Doctorate": 210.61999999999946, 
+            "Less than Secondary": 4.289999999999999, 
+            "Master's": 1172.049999999987, 
+            "NA": 151.4700000000001, 
+            "Secondary": 155.44000000000003
+        }, 
+        "total": {
+            "Bachelor's": 14766, 
+            "Doctorate": 3274, 
+            "Less than Secondary": 171, 
+            "Master's": 14866, 
+            "NA": 3482, 
+            "Secondary": 4712
+        }, 
+        "uncertified": {
+            "Bachelor's": 14167, 
+            "Doctorate": 3119, 
+            "Less than Secondary": 168, 
+            "Master's": 13979, 
+            "NA": 3387, 
+            "Secondary": 4610
+        }
+    }, 
+    {
+        "_course": "Human Health & Global Environmental  Change", 
+        "_term": "Spring", 
+        "avg_grades": {
+            "Bachelor's": 0.03, 
+            "Doctorate": 0.03, 
+            "Less than Secondary": 0.04, 
+            "Master's": 0.03, 
+            "NA": 0.03, 
+            "Secondary": 0.03
+        }, 
+        "avg_grades_overzero": {
+            "Bachelor's": 0.03, 
+            "Doctorate": 0.03, 
+            "Less than Secondary": 0.04, 
+            "Master's": 0.03, 
+            "NA": 0.03, 
+            "Secondary": 0.03
+        }, 
+        "certified": {
+            "Bachelor's": 258, 
+            "Doctorate": 20, 
+            "Less than Secondary": 12, 
+            "Master's": 202, 
+            "NA": 73, 
+            "Secondary": 144
+        }, 
+        "count_grades": {
+            "Bachelor's": 11483, 
+            "Doctorate": 755, 
+            "Less than Secondary": 344, 
+            "Master's": 7716, 
+            "NA": 2623, 
+            "Secondary": 6255
+        }, 
+        "count_grades_overzero": {
+            "Bachelor's": 11483, 
+            "Doctorate": 755, 
+            "Less than Secondary": 344, 
+            "Master's": 7716, 
+            "NA": 2623, 
+            "Secondary": 6255
+        }, 
+        "sum_grades": {
+            "Bachelor's": 317.2399999999999, 
+            "Doctorate": 24.360000000000003, 
+            "Less than Secondary": 14.56, 
+            "Master's": 235.92000000000039, 
+            "NA": 88.69999999999996, 
+            "Secondary": 180.92000000000047
+        }, 
+        "sum_grades_overzero": {
+            "Bachelor's": 317.2399999999999, 
+            "Doctorate": 24.360000000000003, 
+            "Less than Secondary": 14.56, 
+            "Master's": 235.92000000000039, 
+            "NA": 88.69999999999996, 
+            "Secondary": 180.92000000000047
+        }, 
+        "total": {
+            "Bachelor's": 13782, 
+            "Doctorate": 878, 
+            "Less than Secondary": 480, 
+            "Master's": 9227, 
+            "NA": 3296, 
+            "Secondary": 7831
+        }, 
+        "uncertified": {
+            "Bachelor's": 13524, 
+            "Doctorate": 858, 
+            "Less than Secondary": 468, 
+            "Master's": 9025, 
+            "NA": 3223, 
+            "Secondary": 7687
+        }
+    }, 
+    {
+        "_course": "Intro to CS & Programming", 
+        "_term": "Fall", 
+        "avg_grades": {
+            "Bachelor's": 0.03, 
+            "Doctorate": 0.05, 
+            "Less than Secondary": 0.04, 
+            "Master's": 0.04, 
+            "NA": 0.08, 
+            "Secondary": 0.03
+        }, 
+        "avg_grades_overzero": {
+            "Bachelor's": 0.03, 
+            "Doctorate": 0.05, 
+            "Less than Secondary": 0.04, 
+            "Master's": 0.04, 
+            "NA": 0.08, 
+            "Secondary": 0.03
+        }, 
+        "certified": {
+            "Bachelor's": 591, 
+            "Doctorate": 32, 
+            "Less than Secondary": 45, 
+            "Master's": 411, 
+            "NA": 864, 
+            "Secondary": 532
+        }, 
+        "count_grades": {
+            "Bachelor's": 23304, 
+            "Doctorate": 716, 
+            "Less than Secondary": 1198, 
+            "Master's": 9886, 
+            "NA": 11935, 
+            "Secondary": 17801
+        }, 
+        "count_grades_overzero": {
+            "Bachelor's": 23304, 
+            "Doctorate": 716, 
+            "Less than Secondary": 1198, 
+            "Master's": 9886, 
+            "NA": 11935, 
+            "Secondary": 17801
+        }, 
+        "sum_grades": {
+            "Bachelor's": 684.4499999999799, 
+            "Doctorate": 36.43000000000005, 
+            "Less than Secondary": 50.569999999999936, 
+            "Master's": 441.7799999999938, 
+            "NA": 907.8799999999993, 
+            "Secondary": 608.9099999999859
+        }, 
+        "sum_grades_overzero": {
+            "Bachelor's": 684.4499999999799, 
+            "Doctorate": 36.43000000000005, 
+            "Less than Secondary": 50.569999999999936, 
+            "Master's": 441.7799999999938, 
+            "NA": 907.8799999999993, 
+            "Secondary": 608.9099999999859
+        }, 
+        "total": {
+            "Bachelor's": 23967, 
+            "Doctorate": 716, 
+            "Less than Secondary": 1211, 
+            "Master's": 10165, 
+            "NA": 11991, 
+            "Secondary": 18101
+        }, 
+        "uncertified": {
+            "Bachelor's": 23376, 
+            "Doctorate": 684, 
+            "Less than Secondary": 1166, 
+            "Master's": 9754, 
+            "NA": 11127, 
+            "Secondary": 17569
+        }
+    }, 
+    {
+        "_course": "Electricity & Magnetism", 
+        "_term": "Spring", 
+        "avg_grades": {
+            "Bachelor's": 0.02, 
+            "Doctorate": 0.05, 
+            "Less than Secondary": 0.03, 
+            "Master's": 0.04, 
+            "NA": 0.06, 
+            "Secondary": 0.03
+        }, 
+        "avg_grades_overzero": {
+            "Bachelor's": 0.02, 
+            "Doctorate": 0.05, 
+            "Less than Secondary": 0.03, 
+            "Master's": 0.04, 
+            "NA": 0.06, 
+            "Secondary": 0.03
+        }, 
+        "certified": {
+            "Bachelor's": 111, 
+            "Doctorate": 15, 
+            "Less than Secondary": 16, 
+            "Master's": 98, 
+            "NA": 406, 
+            "Secondary": 176
+        }, 
+        "count_grades": {
+            "Bachelor's": 6032, 
+            "Doctorate": 300, 
+            "Less than Secondary": 595, 
+            "Master's": 2665, 
+            "NA": 7702, 
+            "Secondary": 6738
+        }, 
+        "count_grades_overzero": {
+            "Bachelor's": 6032, 
+            "Doctorate": 300, 
+            "Less than Secondary": 595, 
+            "Master's": 2665, 
+            "NA": 7702, 
+            "Secondary": 6738
+        }, 
+        "sum_grades": {
+            "Bachelor's": 145.97000000000025, 
+            "Doctorate": 16.099999999999994, 
+            "Less than Secondary": 17.599999999999994, 
+            "Master's": 107.87000000000026, 
+            "NA": 443.67000000000075, 
+            "Secondary": 214.47999999999954
+        }, 
+        "sum_grades_overzero": {
+            "Bachelor's": 145.97000000000025, 
+            "Doctorate": 16.099999999999994, 
+            "Less than Secondary": 17.599999999999994, 
+            "Master's": 107.87000000000026, 
+            "NA": 443.67000000000075, 
+            "Secondary": 214.47999999999954
+        }, 
+        "total": {
+            "Bachelor's": 6596, 
+            "Doctorate": 322, 
+            "Less than Secondary": 692, 
+            "Master's": 2963, 
+            "NA": 7964, 
+            "Secondary": 7432
+        }, 
+        "uncertified": {
+            "Bachelor's": 6485, 
+            "Doctorate": 307, 
+            "Less than Secondary": 676, 
+            "Master's": 2865, 
+            "NA": 7558, 
+            "Secondary": 7256
+        }
+    }, 
+    {
+        "_course": "Intro to Biology", 
+        "_term": "Spring", 
+        "avg_grades": {
+            "Bachelor's": 0.04, 
+            "Doctorate": 0.05, 
+            "Less than Secondary": 0.05, 
+            "Master's": 0.05, 
+            "NA": 0.07, 
+            "Secondary": 0.03
+        }, 
+        "avg_grades_overzero": {
+            "Bachelor's": 0.04, 
+            "Doctorate": 0.05, 
+            "Less than Secondary": 0.05, 
+            "Master's": 0.05, 
+            "NA": 0.07, 
+            "Secondary": 0.03
+        }, 
+        "certified": {
+            "Bachelor's": 160, 
+            "Doctorate": 42, 
+            "Less than Secondary": 27, 
+            "Master's": 196, 
+            "NA": 276, 
+            "Secondary": 120
+        }, 
+        "count_grades": {
+            "Bachelor's": 5010, 
+            "Doctorate": 920, 
+            "Less than Secondary": 657, 
+            "Master's": 3636, 
+            "NA": 3877, 
+            "Secondary": 4222
+        }, 
+        "count_grades_overzero": {
+            "Bachelor's": 5010, 
+            "Doctorate": 920, 
+            "Less than Secondary": 657, 
+            "Master's": 3636, 
+            "NA": 3877, 
+            "Secondary": 4222
+        }, 
+        "sum_grades": {
+            "Bachelor's": 189.02000000000012, 
+            "Doctorate": 44.020000000000024, 
+            "Less than Secondary": 36.13000000000004, 
+            "Master's": 199.36999999999975, 
+            "NA": 280.72000000000025, 
+            "Secondary": 141.92
+        }, 
+        "sum_grades_overzero": {
+            "Bachelor's": 189.02000000000012, 
+            "Doctorate": 44.020000000000024, 
+            "Less than Secondary": 36.13000000000004, 
+            "Master's": 199.36999999999975, 
+            "NA": 280.72000000000025, 
+            "Secondary": 141.92
+        }, 
+        "total": {
+            "Bachelor's": 5473, 
+            "Doctorate": 927, 
+            "Less than Secondary": 688, 
+            "Master's": 3906, 
+            "NA": 3972, 
+            "Secondary": 4600
+        }, 
+        "uncertified": {
+            "Bachelor's": 5313, 
+            "Doctorate": 885, 
+            "Less than Secondary": 661, 
+            "Master's": 3710, 
+            "NA": 3696, 
+            "Secondary": 4480
+        }
+    }, 
+    {
+        "_course": "Circuits & Electronics", 
+        "_term": "Fall", 
+        "avg_grades": {
+            "Bachelor's": 0.04, 
+            "Doctorate": 0.04, 
+            "Less than Secondary": 0.07, 
+            "Master's": 0.07, 
+            "NA": 0.08, 
+            "Secondary": 0.07
+        }, 
+        "avg_grades_overzero": {
+            "Bachelor's": 0.04, 
+            "Doctorate": 0.04, 
+            "Less than Secondary": 0.07, 
+            "Master's": 0.07, 
+            "NA": 0.08, 
+            "Secondary": 0.07
+        }, 
+        "certified": {
+            "Bachelor's": 386, 
+            "Doctorate": 6, 
+            "Less than Secondary": 20, 
+            "Master's": 190, 
+            "NA": 587, 
+            "Secondary": 561
+        }, 
+        "count_grades": {
+            "Bachelor's": 11067, 
+            "Doctorate": 212, 
+            "Less than Secondary": 341, 
+            "Master's": 3186, 
+            "NA": 8370, 
+            "Secondary": 9091
+        }, 
+        "count_grades_overzero": {
+            "Bachelor's": 11067, 
+            "Doctorate": 212, 
+            "Less than Secondary": 341, 
+            "Master's": 3186, 
+            "NA": 8370, 
+            "Secondary": 9091
+        }, 
+        "sum_grades": {
+            "Bachelor's": 471.73999999999666, 
+            "Doctorate": 7.569999999999999, 
+            "Less than Secondary": 23.189999999999994, 
+            "Master's": 210.67000000000013, 
+            "NA": 685.030000000002, 
+            "Secondary": 632.6099999999958
+        }, 
+        "sum_grades_overzero": {
+            "Bachelor's": 471.73999999999666, 
+            "Doctorate": 7.569999999999999, 
+            "Less than Secondary": 23.189999999999994, 
+            "Master's": 210.67000000000013, 
+            "NA": 685.030000000002, 
+            "Secondary": 632.6099999999958
+        }, 
+        "total": {
+            "Bachelor's": 13387, 
+            "Doctorate": 286, 
+            "Less than Secondary": 448, 
+            "Master's": 4007, 
+            "NA": 9678, 
+            "Secondary": 11269
+        }, 
+        "uncertified": {
+            "Bachelor's": 13001, 
+            "Doctorate": 280, 
+            "Less than Secondary": 428, 
+            "Master's": 3817, 
+            "NA": 9091, 
+            "Secondary": 10708
+        }
+    }, 
+    {
+        "_course": "Introduction to CS 1", 
+        "_term": "Fall", 
+        "avg_grades": {
+            "Bachelor's": 0.01, 
+            "Doctorate": 0.01, 
+            "Less than Secondary": 0.02, 
+            "Master's": 0.02, 
+            "NA": 0.01, 
+            "Secondary": 0.01
+        }, 
+        "avg_grades_overzero": {
+            "Bachelor's": 0.01, 
+            "Doctorate": 0.01, 
+            "Less than Secondary": 0.02, 
+            "Master's": 0.02, 
+            "NA": 0.01, 
+            "Secondary": 0.01
+        }, 
+        "certified": {
+            "Bachelor's": 387, 
+            "Doctorate": 16, 
+            "Less than Secondary": 65, 
+            "Master's": 236, 
+            "NA": 217, 
+            "Secondary": 365
+        }, 
+        "count_grades": {
+            "Bachelor's": 35505, 
+            "Doctorate": 1279, 
+            "Less than Secondary": 3069, 
+            "Master's": 14706, 
+            "NA": 14643, 
+            "Secondary": 30890
+        }, 
+        "count_grades_overzero": {
+            "Bachelor's": 35505, 
+            "Doctorate": 1279, 
+            "Less than Secondary": 3069, 
+            "Master's": 14706, 
+            "NA": 14643, 
+            "Secondary": 30890
+        }, 
+        "sum_grades": {
+            "Bachelor's": 387.0, 
+            "Doctorate": 16.0, 
+            "Less than Secondary": 65.0, 
+            "Master's": 236.0, 
+            "NA": 217.0, 
+            "Secondary": 365.0
+        }, 
+        "sum_grades_overzero": {
+            "Bachelor's": 387.0, 
+            "Doctorate": 16.0, 
+            "Less than Secondary": 65.0, 
+            "Master's": 236.0, 
+            "NA": 217.0, 
+            "Secondary": 365.0
+        }, 
+        "total": {
+            "Bachelor's": 35834, 
+            "Doctorate": 1289, 
+            "Less than Secondary": 3102, 
+            "Master's": 14868, 
+            "NA": 14660, 
+            "Secondary": 31006
+        }, 
+        "uncertified": {
+            "Bachelor's": 35447, 
+            "Doctorate": 1273, 
+            "Less than Secondary": 3037, 
+            "Master's": 14632, 
+            "NA": 14443, 
+            "Secondary": 30641
+        }
+    }, 
+    {
+        "_course": "The Ancient Greek Hero", 
+        "_term": "Spring", 
+        "avg_grades": {
+            "Bachelor's": 0.02, 
+            "Doctorate": 0.01, 
+            "Less than Secondary": 0.03, 
+            "Master's": 0.02, 
+            "NA": 0.02, 
+            "Secondary": 0.02
+        }, 
+        "avg_grades_overzero": {
+            "Bachelor's": 0.02, 
+            "Doctorate": 0.01, 
+            "Less than Secondary": 0.03, 
+            "Master's": 0.02, 
+            "NA": 0.02, 
+            "Secondary": 0.02
+        }, 
+        "certified": {
+            "Bachelor's": 117, 
+            "Doctorate": 10, 
+            "Less than Secondary": 14, 
+            "Master's": 89, 
+            "NA": 61, 
+            "Secondary": 93
+        }, 
+        "count_grades": {
+            "Bachelor's": 7856, 
+            "Doctorate": 932, 
+            "Less than Secondary": 499, 
+            "Master's": 5572, 
+            "NA": 3329, 
+            "Secondary": 5308
+        }, 
+        "count_grades_overzero": {
+            "Bachelor's": 7856, 
+            "Doctorate": 932, 
+            "Less than Secondary": 499, 
+            "Master's": 5572, 
+            "NA": 3329, 
+            "Secondary": 5308
+        }, 
+        "sum_grades": {
+            "Bachelor's": 126.7100000000004, 
+            "Doctorate": 13.979999999999993, 
+            "Less than Secondary": 14.589999999999996, 
+            "Master's": 92.30000000000021, 
+            "NA": 63.82999999999997, 
+            "Secondary": 92.6600000000003
+        }, 
+        "sum_grades_overzero": {
+            "Bachelor's": 126.7100000000004, 
+            "Doctorate": 13.979999999999993, 
+            "Less than Secondary": 14.589999999999996, 
+            "Master's": 92.30000000000021, 
+            "NA": 63.82999999999997, 
+            "Secondary": 92.6600000000003
+        }, 
+        "total": {
+            "Bachelor's": 9475, 
+            "Doctorate": 1040, 
+            "Less than Secondary": 634, 
+            "Master's": 6628, 
+            "NA": 4187, 
+            "Secondary": 6629
+        }, 
+        "uncertified": {
+            "Bachelor's": 9358, 
+            "Doctorate": 1030, 
+            "Less than Secondary": 620, 
+            "Master's": 6539, 
+            "NA": 4126, 
+            "Secondary": 6536
+        }
+    }, 
+    {
+        "_course": "JusticeX", 
+        "_term": "Spring", 
+        "avg_grades": {
+            "Bachelor's": 0.04, 
+            "Doctorate": 0.04, 
+            "Less than Secondary": 0.08, 
+            "Master's": 0.05, 
+            "NA": 0.06, 
+            "Secondary": 0.05
+        }, 
+        "avg_grades_overzero": {
+            "Bachelor's": 0.04, 
+            "Doctorate": 0.04, 
+            "Less than Secondary": 0.08, 
+            "Master's": 0.05, 
+            "NA": 0.06, 
+            "Secondary": 0.05
+        }, 
+        "certified": {
+            "Bachelor's": 668, 
+            "Doctorate": 55, 
+            "Less than Secondary": 87, 
+            "Master's": 572, 
+            "NA": 359, 
+            "Secondary": 603
+        }, 
+        "count_grades": {
+            "Bachelor's": 16247, 
+            "Doctorate": 1380, 
+            "Less than Secondary": 969, 
+            "Master's": 11414, 
+            "NA": 5894, 
+            "Secondary": 11031
+        }, 
+        "count_grades_overzero": {
+            "Bachelor's": 16247, 
+            "Doctorate": 1380, 
+            "Less than Secondary": 969, 
+            "Master's": 11414, 
+            "NA": 5894, 
+            "Secondary": 11031
+        }, 
+        "sum_grades": {
+            "Bachelor's": 671.859999999998, 
+            "Doctorate": 54.609999999999985, 
+            "Less than Secondary": 81.12999999999997, 
+            "Master's": 546.3199999999991, 
+            "NA": 350.9600000000008, 
+            "Secondary": 603.0699999999971
+        }, 
+        "sum_grades_overzero": {
+            "Bachelor's": 671.859999999998, 
+            "Doctorate": 54.609999999999985, 
+            "Less than Secondary": 81.12999999999997, 
+            "Master's": 546.3199999999991, 
+            "NA": 350.9600000000008, 
+            "Secondary": 603.0699999999971
+        }, 
+        "total": {
+            "Bachelor's": 18865, 
+            "Doctorate": 1528, 
+            "Less than Secondary": 1197, 
+            "Master's": 13145, 
+            "NA": 6967, 
+            "Secondary": 13019
+        }, 
+        "uncertified": {
+            "Bachelor's": 18197, 
+            "Doctorate": 1473, 
+            "Less than Secondary": 1110, 
+            "Master's": 12573, 
+            "NA": 6608, 
+            "Secondary": 12416
+        }
+    }, 
+    {
+        "_course": "Elements of structures", 
+        "_term": "Spring", 
+        "avg_grades": {
+            "Bachelor's": 0.04, 
+            "Doctorate": 0.03, 
+            "Less than Secondary": 0.03, 
+            "Master's": 0.07, 
+            "NA": 0.07, 
+            "Secondary": 0.06
+        }, 
+        "avg_grades_overzero": {
+            "Bachelor's": 0.04, 
+            "Doctorate": 0.03, 
+            "Less than Secondary": 0.03, 
+            "Master's": 0.07, 
+            "NA": 0.07, 
+            "Secondary": 0.06
+        }, 
+        "certified": {
+            "Bachelor's": 48, 
+            "Doctorate": 0, 
+            "Less than Secondary": 2, 
+            "Master's": 35, 
+            "NA": 84, 
+            "Secondary": 78
+        }, 
+        "count_grades": {
+            "Bachelor's": 1608, 
+            "Doctorate": 8, 
+            "Less than Secondary": 58, 
+            "Master's": 615, 
+            "NA": 1310, 
+            "Secondary": 1479
+        }, 
+        "count_grades_overzero": {
+            "Bachelor's": 1608, 
+            "Doctorate": 8, 
+            "Less than Secondary": 58, 
+            "Master's": 615, 
+            "NA": 1310, 
+            "Secondary": 1479
+        }, 
+        "sum_grades": {
+            "Bachelor's": 64.05000000000003, 
+            "Doctorate": 0.24000000000000002, 
+            "Less than Secondary": 1.4900000000000002, 
+            "Master's": 41.320000000000036, 
+            "NA": 92.88999999999994, 
+            "Secondary": 87.59000000000009
+        }, 
+        "sum_grades_overzero": {
+            "Bachelor's": 64.05000000000003, 
+            "Doctorate": 0.24000000000000002, 
+            "Less than Secondary": 1.4900000000000002, 
+            "Master's": 41.320000000000036, 
+            "NA": 92.88999999999994, 
+            "Secondary": 87.59000000000009
+        }, 
+        "total": {
+            "Bachelor's": 1758, 
+            "Doctorate": 8, 
+            "Less than Secondary": 58, 
+            "Master's": 643, 
+            "NA": 1433, 
+            "Secondary": 1650
+        }, 
+        "uncertified": {
+            "Bachelor's": 1710, 
+            "Doctorate": 8, 
+            "Less than Secondary": 56, 
+            "Master's": 608, 
+            "NA": 1349, 
+            "Secondary": 1572
+        }
+    }, 
+    {
+        "_course": "Circuits & Electronics", 
+        "_term": "Spring", 
+        "avg_grades": {
+            "Bachelor's": 0.03, 
+            "Doctorate": 0.04, 
+            "Less than Secondary": 0.07, 
+            "Master's": 0.05, 
+            "NA": 0.04, 
+            "Secondary": 0.04
+        }, 
+        "avg_grades_overzero": {
+            "Bachelor's": 0.03, 
+            "Doctorate": 0.04, 
+            "Less than Secondary": 0.07, 
+            "Master's": 0.05, 
+            "NA": 0.04, 
+            "Secondary": 0.04
+        }, 
+        "certified": {
+            "Bachelor's": 170, 
+            "Doctorate": 4, 
+            "Less than Secondary": 13, 
+            "Master's": 74, 
+            "NA": 120, 
+            "Secondary": 211
+        }, 
+        "count_grades": {
+            "Bachelor's": 5211, 
+            "Doctorate": 98, 
+            "Less than Secondary": 178, 
+            "Master's": 1494, 
+            "NA": 3677, 
+            "Secondary": 4979
+        }, 
+        "count_grades_overzero": {
+            "Bachelor's": 5211, 
+            "Doctorate": 98, 
+            "Less than Secondary": 178, 
+            "Master's": 1494, 
+            "NA": 3677, 
+            "Secondary": 4979
+        }, 
+        "sum_grades": {
+            "Bachelor's": 174.60999999999987, 
+            "Doctorate": 4.25, 
+            "Less than Secondary": 12.850000000000001, 
+            "Master's": 75.09000000000006, 
+            "NA": 134.6699999999999, 
+            "Secondary": 211.1600000000002
+        }, 
+        "sum_grades_overzero": {
+            "Bachelor's": 174.60999999999987, 
+            "Doctorate": 4.25, 
+            "Less than Secondary": 12.850000000000001, 
+            "Master's": 75.09000000000006, 
+            "NA": 134.6699999999999, 
+            "Secondary": 211.1600000000002
+        }, 
+        "total": {
+            "Bachelor's": 6567, 
+            "Doctorate": 132, 
+            "Less than Secondary": 235, 
+            "Master's": 1966, 
+            "NA": 4329, 
+            "Secondary": 6361
+        }, 
+        "uncertified": {
+            "Bachelor's": 6397, 
+            "Doctorate": 128, 
+            "Less than Secondary": 222, 
+            "Master's": 1892, 
+            "NA": 4209, 
+            "Secondary": 6150
+        }
+    }, 
+    {
+        "_course": "Intro to Solid State Chemistry", 
+        "_term": "Spring", 
+        "avg_grades": {
+            "Bachelor's": 0.04, 
+            "Doctorate": 0.0, 
+            "Less than Secondary": 0.05, 
+            "Master's": 0.03, 
+            "NA": 0.03, 
+            "Secondary": 0.03
+        }, 
+        "avg_grades_overzero": {
+            "Bachelor's": 0.04, 
+            "Doctorate": 0.0, 
+            "Less than Secondary": 0.05, 
+            "Master's": 0.03, 
+            "NA": 0.03, 
+            "Secondary": 0.03
+        }, 
+        "certified": {
+            "Bachelor's": 46, 
+            "Doctorate": 0, 
+            "Less than Secondary": 8, 
+            "Master's": 12, 
+            "NA": 31, 
+            "Secondary": 41
+        }, 
+        "count_grades": {
+            "Bachelor's": 1158, 
+            "Doctorate": 34, 
+            "Less than Secondary": 184, 
+            "Master's": 550, 
+            "NA": 1305, 
+            "Secondary": 1414
+        }, 
+        "count_grades_overzero": {
+            "Bachelor's": 1158, 
+            "Doctorate": 34, 
+            "Less than Secondary": 184, 
+            "Master's": 550, 
+            "NA": 1305, 
+            "Secondary": 1414
+        }, 
+        "sum_grades": {
+            "Bachelor's": 45.64000000000003, 
+            "Doctorate": 0.1, 
+            "Less than Secondary": 8.44, 
+            "Master's": 14.19999999999999, 
+            "NA": 38.34, 
+            "Secondary": 46.56000000000005
+        }, 
+        "sum_grades_overzero": {
+            "Bachelor's": 45.64000000000003, 
+            "Doctorate": 0.1, 
+            "Less than Secondary": 8.44, 
+            "Master's": 14.19999999999999, 
+            "NA": 38.34, 
+            "Secondary": 46.56000000000005
+        }, 
+        "total": {
+            "Bachelor's": 1354, 
+            "Doctorate": 44, 
+            "Less than Secondary": 225, 
+            "Master's": 626, 
+            "NA": 1459, 
+            "Secondary": 1650
+        }, 
+        "uncertified": {
+            "Bachelor's": 1308, 
+            "Doctorate": 44, 
+            "Less than Secondary": 217, 
+            "Master's": 614, 
+            "NA": 1428, 
+            "Secondary": 1609
+        }
+    }, 
+    {
+        "_course": "Intro to CS & Programming", 
+        "_term": "Spring", 
+        "avg_grades": {
+            "Bachelor's": 0.03, 
+            "Doctorate": 0.05, 
+            "Less than Secondary": 0.03, 
+            "Master's": 0.05, 
+            "NA": 0.05, 
+            "Secondary": 0.03
+        }, 
+        "avg_grades_overzero": {
+            "Bachelor's": 0.03, 
+            "Doctorate": 0.05, 
+            "Less than Secondary": 0.03, 
+            "Master's": 0.05, 
+            "NA": 0.05, 
+            "Secondary": 0.03
+        }, 
+        "certified": {
+            "Bachelor's": 339, 
+            "Doctorate": 24, 
+            "Less than Secondary": 30, 
+            "Master's": 283, 
+            "NA": 283, 
+            "Secondary": 294
+        }, 
+        "count_grades": {
+            "Bachelor's": 15170, 
+            "Doctorate": 560, 
+            "Less than Secondary": 1153, 
+            "Master's": 7048, 
+            "NA": 7277, 
+            "Secondary": 13045
+        }, 
+        "count_grades_overzero": {
+            "Bachelor's": 15170, 
+            "Doctorate": 560, 
+            "Less than Secondary": 1153, 
+            "Master's": 7048, 
+            "NA": 7277, 
+            "Secondary": 13045
+        }, 
+        "sum_grades": {
+            "Bachelor's": 444.549999999988, 
+            "Doctorate": 27.990000000000038, 
+            "Less than Secondary": 39.14000000000001, 
+            "Master's": 321.9899999999953, 
+            "NA": 350.67000000000104, 
+            "Secondary": 405.6199999999892
+        }, 
+        "sum_grades_overzero": {
+            "Bachelor's": 444.549999999988, 
+            "Doctorate": 27.990000000000038, 
+            "Less than Secondary": 39.14000000000001, 
+            "Master's": 321.9899999999953, 
+            "NA": 350.67000000000104, 
+            "Secondary": 405.6199999999892
+        }, 
+        "total": {
+            "Bachelor's": 17564, 
+            "Doctorate": 624, 
+            "Less than Secondary": 1347, 
+            "Master's": 8101, 
+            "NA": 8036, 
+            "Secondary": 15192
+        }, 
+        "uncertified": {
+            "Bachelor's": 17225, 
+            "Doctorate": 600, 
+            "Less than Secondary": 1317, 
+            "Master's": 7818, 
+            "NA": 7753, 
+            "Secondary": 14898
+        }
+    }
+]
