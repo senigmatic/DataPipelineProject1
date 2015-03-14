@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css">
     <script src="//code.jquery.com/jquery-1.10.2.js"></script>
     <script src="//code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
+    <script src="http://www.d3plus.org/js/d3.js"></script>
+<script src="http://www.d3plus.org/js/d3plus.js"></script>
 <script src="d3/box.js"></script>
   <script>
   $(function() {
@@ -299,11 +301,151 @@ var ageCategory = ["14 to 19","20 to 24","25-29","30 to 39","40-49","5 and under
 
 function drawBox(boxData)
 {
-var data = [1,2,3,4,5];
-function iqr(k) {
 
+var dataBox;
+
+var margin = {top: 10, right: 50, bottom: 20, left: 50},
+    width = 900 - margin.left - margin.right,
+    height = 200 - margin.top - margin.bottom;
+
+var min = -0.2,
+    max = 1.2;
+
+var chart = d3.box()
+    .whiskers(iqr(0.1))
+    .width(width)
+    .height(height);
+
+var fileName;
+if(currDemog == "A")
+{
+	fileName = "data/age_data_BoxPlot.json";
+}
+
+
+d3.json(fileName, function(error, csv) {
+  var data = [];
+
+	var csv1;
+  csv.forEach(function(x)
+  {
+  	if(x._course == currentCourse)
+  		csv1 = x.box_plot;
+  });
+
+console.log(csv1);
+
+	for (ii in csv1)
+	{
+		console.log(csv1[ii].all_grades);
+				data[data.length] = [];
+				data[data.length-1][0] = ii;
+				data[data.length-1][1] = csv1[ii].all_grades;
+
+
+
+	}
+
+/*  csv.forEach(function(x) {
+		 var e = x.age,
+		 	 s = Math.floor(x.grade),
+        	 d = data[e];
+	var isPresent = 0;
+	var index = -1;
+	var count = 0;
+	data.forEach(
+		function(x){
+
+			console.log(x[0]);
+			if(x[0] == e)
+			{
+				index = count;
+				isPresent = 1;
+
+			}
+			if(isPresent==0)
+				count = count+1;
+		});
+	if(isPresent==0)
+	{
+		data[data.length] = [];
+		data[data.length-1][0] = e;
+		data[data.length-1][1] = [parseInt(s)];
+	}
+	else
+	{
+				data[index][1].push(s);
+	}
+    });*/
+    var labels = true;
+	console.log(data,width,height);
+		var chart = d3.box()
+			.whiskers(iqr(1.5))
+			.height(height)
+			.domain([min, max])
+		.showLabels(labels);
+
+d3.select("#tab3-box").select("svg").remove();
+	var svg = d3.select("#tab3-box").append("svg")
+			.attr("width", width + margin.left + margin.right)
+			.attr("height", height + margin.top + margin.bottom)
+			.attr("class", "box")
+			.append("g")
+		.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+
+var x = d3.scale.ordinal()
+		.domain( data.map(function(d) {  return d[0] } ) )
+		.rangeRoundBands([0 , width], 0.7, 0.3);
+
+	var xAxis = d3.svg.axis()
+		.scale(x)
+		.orient("bottom");
+
+	// the y-axis
+	var y = d3.scale.linear()
+		.domain([min, max])
+		.range([height + margin.top, 0 + margin.top]);
+
+	var yAxis = d3.svg.axis()
+    .scale(y)
+    .orient("left");
+
+svg.selectAll(".box")
+      .data(data)
+	  .enter().append("g")
+		.attr("transform", function(d) { return "translate(" +  x(d[0])  + "," + margin.top + ")"; } )
+      .call(chart.width(x.rangeBand()));
+
+      svg.append("text")
+	          .attr("x", (width / 2))
+	          .attr("y", 0 + (margin.top / 2))
+	          .attr("text-anchor", "middle")
+	          .style("font-size", "18px")
+	          //.style("text-decoration", "underline")
+        .text("Grades");
+
+        	svg.append("g")
+		      .attr("class", "x axis")
+		      .attr("transform", "translate(0," + (height  + margin.top + 10) + ")")
+		      .call(xAxis)
+			  .append("text")             // text label for the x axis
+			  	.attr("transform", "rotate(-90)")
+		        .attr("x", (width / 2) )
+		        .attr("y",  10 )
+				.attr("dy", ".71em")
+		        .style("text-anchor", "middle")
+				.style("font-size", "12px")
+        .text("Age group");
+
+
+});
+
+
+}
+
+function iqr(k) {
   return function(d, i) {
-  	d.quartiles = [1,2,3,4,5];
     var q1 = d.quartiles[0],
         q3 = d.quartiles[2],
         iqr = (q3 - q1) * k,
@@ -314,33 +456,6 @@ function iqr(k) {
     return [i, j];
   };
 }
-
-	var margin = {top: 10, right: 50, bottom: 20, left: 50},
-	    width = 120 - margin.left - margin.right,
-	    height = 500 - margin.top - margin.bottom;
-
-	var min = Infinity,
-	    max = -Infinity;
-
-	var chart = d3.box()
-	    .whiskers(iqr(1.5))
-	    .width(width)
-    .height(height);
-
-  var svg = d3.select("#tab3-box").selectAll("svg")
-      .data(data)
-    .enter().append("svg")
-      .attr("class", "box")
-      .attr("width", width + margin.left + margin.right)
-      .attr("height", height + margin.bottom + margin.top)
-    .append("g")
-      .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
-      .call(chart);
-
-
-}
-
-
 function drawBar(barData)
 {
 	var barCert = [];
@@ -349,12 +464,12 @@ function drawBar(barData)
 	{
 		var tempC = {};
 		var tempU = {};
-		tempC['y'] = parseInt(barData[0].certified);
+		tempC['y'] = parseInt(barData[0].certified)*100/parseInt(barData[0].uncertified);
 		tempU['y'] = parseInt(barData[0].uncertified);
 		tempC['x'] = "Certified";
 		tempU['x']= "uncertified";
 		barCert.push(tempC);
-		barCert.push(tempU);
+		//barCert.push(tempU);
 	}
 
 
@@ -378,7 +493,9 @@ d3.select("#tab3-bar").selectAll("svg").remove();
 
     yRange = d3.scale.linear().range([HEIGHT - MARGINS.top, MARGINS.bottom]).domain([0,
       d3.max(barCert, function (d) {
+      	if(d.y>10)
         return d.y;
+        else return 10;
       })
     ]),
 
@@ -539,10 +656,10 @@ function drawPi(piData)
 		//console.log(key, piData.total[key]);
 	}
 		var width = 540,
-			height = 500;
+			height = 700;
 
 
-		var outerRadius = height / 2 - 80,
+		var outerRadius = height / 2 - 150,
 			innerRadius = outerRadius / 3,
 			cornerRadius = 10;
 
@@ -640,7 +757,6 @@ function drawPi(piData)
 
 				};
 				}
-
 
 
 }
