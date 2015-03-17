@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+<script src="http://www.d3plus.org/js/d3.js"></script>
+<script src="http://www.d3plus.org/js/d3plus.js"></script>
+<script type="text/javascript" src="d3.js"></script>
+
+ 
+
+<title>Project 1</title>
+</head>  
+
+<body> 
+<div id="map"></div>   
+<div>Select the data to show: 
+    <select id="selectVariable" onchange="selectVariable()">
+    <option value ="Average Grade">Average Grade</option>
+    <option value ="Average Number of Events">Average Number of Events</option>
+    <option value="Average Number of Days Activated">Average Number of Days Activated</option>
+    <option value ="Average Number of Video Plays">Average Number of Video Plays</option>
+    <option value ="Average Number of Chapters">Average Number of Chapters</option>
+    <option value ="Average Number of Forum Post">Average Number of Forum Post</option>
+    
+</div>
+
+
+
+
+
+
+
+<script type="text/javascript" charset="utf-8">
+
+//var scatter_data = {{scatter_data}};
+    
+//console.log(scatter_data);
+
+    var currentVariable = "Average Grade";
+    var url = "";
+    var content = "";
+
+    
+    
+    
+    variableList  = {"Average Grade":"25.350289376823085&lng=-164.04692350000005&t=1&z=2&l=col1&y=2&tmplt=2&hml=ONE_COL_LAT_LNG",
+		"Average Number of Events":"35.627215414941375&lng=112.28120149999995&t=1&z=2&l=col1&y=4&tmplt=5&hml=ONE_COL_LAT_LNG",
+        "Average Number of Days Activated":"25.350289376823085&lng=-164.04692350000005&t=1&z=1&l=col1&y=5&tmplt=6&hml=ONE_COL_LAT_LNG",
+        "Average Number of Video Plays":"28.01991972937131&lng=-176.52739025000005&t=1&z=2&l=col1&y=6&tmplt=7&hml=ONE_COL_LAT_LNG",
+        "Average Number of Chapters":"25.350289376823085&lng=-164.04692350000005&t=1&z=2&l=col1&y=7&tmplt=8&hml=ONE_COL_LAT_LNG",
+        "Average Number of Forum Post":"26.76740480519762&lng=77.52095820337672&t=1&z=1&l=col1&y=8&tmplt=9&hml=ONE_COL_LAT_LNG"
+		}
+		
+
+
+var map;
+    
+function selectVariable() {
+    currentVariable = document.getElementById("selectVariable").value;
+    var url = "https://www.google.com/fusiontables/embedviz?q=select+col1+from+1oMsvPiGDUGvGziOYVnJwR1NBuGpRsXKy2W3kG20f&viz=MAP&h=false&lat="+ variableList[currentVariable];
+    var content = "<iframe width='800' height='600' frameborder='0' src=" + url + "><\/iframe>";
+    document.getElementById("map").innerHTML = content;
+    console.log(content);
+    }
+    
+
+
+</script>
+</body>
+</html>
