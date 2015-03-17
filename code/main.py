@@ -43,11 +43,11 @@ class BaseHandler(webapp2.RequestHandler):
 class MainHandler(BaseHandler):
     def get(self):
 	context = {}
-        self.render_response('index.html', **context)
+        self.render_response('index3.html', **context)
         
     def post(self):
         context = {}
-        self.render_response('index.html', **context)
+        self.render_response('index3.html', **context)
 
     
 

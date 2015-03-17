@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Project 1</title>
+  <link href="stylesheets/tabs.css" rel="stylesheet" type="text/css"/>
+  <script type="text/javascript" src="d3/d3.js"></script>
+    <script type="text/javascript" src="d3/crossfilter.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
+    <script src="http://www.d3plus.org/js/d3.js"></script>
+<script src="http://www.d3plus.org/js/d3plus.js"></script>
+<script src="d3/box.js"></script>
+  <script>
+  $(function() {
+    $( "#tabs" ).tabs();
+  });
+  </script>
+  <script>
+  function postRequest(parameters)
+  {
+  var xmlhttp;
+  if (window.XMLHttpRequest)
+    {// code for IE7+, Firefox, Chrome, Opera, Safari
+    xmlhttp=new XMLHttpRequest();
+    }
+  else
+    {// code for IE6, IE5
+    xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+    }
+  xmlhttp.onreadystatechange=function()
+    {
+    if (xmlhttp.readyState==4 && xmlhttp.status==200)
+      {
+      }
+    }
+  xmlhttp.open("POST",url,true);
+  xmlhttp.send();
+}
+  </script>
+
+</head>
+	<body>
+		<center>
+			  <div id="tabs-3">
+					<div id="tab3">
+							<div style = "width:100%;float:left;margin:10px">
+								Select a course: <select id="select1"></select>
+							</div>
+							<div class="choiceDiv" id="demographics">
+								<h3>Demographics</h3>
+								<span  style="float:left"><input type="radio" name="demographics1" value="age" id="age" checked> Age</span><br><br>
+								<span  style="float:left"><input type="radio" name="demographics1" value="edu" id="edu"> Education Level</span><br><br>
+								<span  style="float:left"><input type="radio" name="demographics1" value="gender" id="gender"> Gender</span><br><br>
+								<span  style="float:left"><input type="radio" name="demographics1" value="cntry" id="cntry"> Country</span>
+							</div>
+							<div class="choiceDiv" id="outcome">
+								<h3>Result</h3>
+								<span  style="float:left"><input type="checkbox" name="outcome1" value="certi" id="certi" checked> Certification</span><br><br>
+								<span  style="float:left"><input type="checkbox" name="outcome1" value="grade" id="grade" checked> Grade</span>
+							</div>
+							<div class="choiceDiv" id="missing">
+								<h3>Missing Data</h3>
+								<span  style="float:left"><input type="radio" name="missing1" value="other" id="other" checked>Show as Other category</span><br><br>
+								<span  style="float:left"><input type="radio" name="missing1" value="remove" id="remove">Remove Missing Data</span><br><br>
+								<!--span  style="float:left"><input type="radio" name="missing1" value="distribute">Distribute Equally</span><br><br-->
+								<!--span  style="float:left"><input type="radio" name="missing1" value="avg" id="avg">Distribute by Ratio</span><br><br>
+								<span  style="float:left"><input type="radio" name="missing1" value="predict" id="predict">Pridict and Impute</span-->
+							</div>
+							<div id="tab3-pi"></div>
+							<div id="tab3-bar"></div>
+							<div id="tab3-box"></div>
+						    <div id="tooltip2" class="hidden"><p id="head"></p></div>
+						    <div id="tooltip" class="hidden"><p id="head"></p></div>
+
+					</div>
+				</div>
+		</center>
+
+<script>
+
+	var currDemog = "A";
+	var currentCourse = "The Ancient Greek Hero";
+	var currMissing = "Show as Other category";
+	var currOutcome = "All";
+	var dataDisp;
+
+	var showGrade=true,showCerti=true;
+
+
+	var options = ["Education Level","Country","Gender","Age"];
+	var courses_short = ["The Ancient Greek Hero","Introduction to CS 1","JusticeX","Health in Numbers","Human Health & Global Environmental  Change","The Challenges of Global Poverty","Elements of structures","Intro to Solid State Chemistry","Circuits & Electronics","Intro to CS & Programming","Intro to Biology","Electricity & Magnetism","Mechanics ReView"];
+	var ageCategory = ["14 to 19","20 to 24","25-29","30 to 39","40-49","5 and under","50-59","60-69","70 and above","9 to 13","NA"];
+
+	var selectCrs = d3.select("#tab3")
+					  .select("#select1")
+	       			  .on("change", function() {
+			         		changeCrs(this.options[this.selectedIndex].__data__);})
+			     	  .selectAll("option")
+			      	  .data(courses_short).enter()
+			     	  .append("option")
+			     	  .text(function(d) {return d;})
+	    			  .on("load",changeCrs(currentCourse));
+
+
+
+	function changeCrs(crs)
+	{
+		//console.log(crs);
+	 	currentCourse = crs;
+	 	update(currDemog);
+	 	visualizeit();
+	}
+
+	  d3.selectAll("input[name='demographics1']")
+	  .on("click", filterDemog);
+
+	  d3.selectAll("input[name='missing1']")
+	  .on("click", filterMissing);
+
+	  d3.selectAll("input[name='outcome1']")
+	  .on("click", filterOutcome);
+
+
+	function filterMissing()
+	{
+		d3.select("#tab3").selectAll("svg").remove();
+
+		var showAll = document.getElementById("other").checked;
+		var removeAll = document.getElementById("remove").checked;
+		//var avgAll = document.getElementById("avg").checked;
+		//var predictAll = document.getElementById("predict").checked;
+
+		if(showAll){currOutcome = "All";}
+		else if(removeAll){currOutcome = "None";}
+		else if(avgAll){currOutcome = "Avg";}
+		else {currOutcome = "Pred";}
+
+		visualizeit();
+
+	}
+
+	function filterDemog()
+	{
+	   try {
+				d3.select("#tab3").selectAll("svg").remove();
+
+				var ageState = document.getElementById("age").checked;
+				var eduState = document.getElementById("edu").checked;
+				var genderState = document.getElementById("gender").checked;
+				var cntryState = document.getElementById("cntry").checked;
+
+				if(ageState){currDemog = "A";update("A");}
+				else if(eduState){currDemog = "E";update("E");}
+				else if(genderState){currDemog = "G";update("G");}
+				else{currDemog = "C";update("C");}
+
+
+		} catch (e) {
+			window.location.reload();
+    	}
+	}
+
+	function filterOutcome()
+	{
+		showCerti = document.getElementById("certi").checked;
+		showGrade = document.getElementById("grade").checked;
+
+		visualizeit();
+
+	}
+
+
+
+  function update(demog)
+  {
+  		console.log(demog);
+		if (demog == "A")
+		{
+			d3.json("data/age_data.json", function(error,json) {
+			if (error) return console.warn(error);
+				dataDisp = json;
+				visualizeit();
+			});
+		}
+		else if (demog == "E")
+		{
+			d3.json("data/edu_data.json", function(error,json) {
+				if (error) return console.warn(error);
+					dataDisp = json;
+					visualizeit();
+			});
+		}
+		else if (demog == "G")
+		{
+			d3.json("data/gender_data.json", function(error,json) {
+				if (error) return console.warn(error);
+					dataDisp = json;
+					visualizeit();
+			});
+		}
+		else if (demog == "C")
+		{
+			d3.json("data/country_data.json", function(error,json) {
+				if (error) return console.warn(error);
+					dataDisp = json;
+					visualizeit();
+			});
+		}
+		console.log(dataDisp);
+		//visualizeit();
+  }
+
+function visualizeit()
+{
+	if(typeof (dataDisp)== "undefined")
+	{
+		console.log("in here");
+
+	}
+	console.log(dataDisp,typeof (dataDisp));
+
+	console.log(currentCourse);
+	d3.select("#tab3").selectAll("svg").remove();
+	try{
+	dataDisp.forEach(function(d)
+	{
+		if(d._course === currentCourse)
+		{
+			var piData = d;
+			drawPi(piData);
+		}
+	});
+	}catch(e){}
+}
+
+
+
+//draw the Pi chart
+	var tempTotalStudents = 0;
+	var distributionOfNonNA = [];
+	var tempNA = [];
+
+function drawPi(piData)
+{
+	drawBox(barData);
+	var newData = [];
+	var sum = 0;
+
+	for(key in piData.total)
+	{
+		var dataPut = {};
+		dataPut["ageRange"] = key;
+		dataPut["count"] = piData.total[key];
+
+		//what do we do with missing data?
+		if(currOutcome == "None")
+		{
+			if((key != "NA")&&(key != "Other"))
+			{
+				newData.push(dataPut);
+				sum = sum +piData.total[key];
+			}
+		}
+		if(currOutcome == "All")
+		{
+			newData.push(dataPut);
+			sum = sum +piData.total[key];
+		}
+		if(currOutcome == "Avg")
+		{
+			if(key != "NA")
+			{
+				newData.push(dataPut);
+				tempTotalStudents = tempTotalStudents+piData.total[key];
+				distributionOfNonNA.push(dataPut);
+				sum = sum +piData.total[key];
+			}
+			else
+			{
+				tempNA = dataPut;
+			}
+		}
+		//console.log(key, piData.total[key]);
+	}
+
+	if(currOutcome == "Avg")
+	{
+		for(dataDis in distributionOfNonNA)
+		{
+			console.log(distributionOfNonNA[dataDis].ageRange,tempTotalStudents);
+			for(newDataLoop in newData)
+			{
+				if(distributionOfNonNA[dataDis].ageRange == newData[newDataLoop].ageRange)
+				{
+					console.log(distributionOfNonNA[dataDis].count/tempTotalStudents);
+					console.log(piData);
+				}
+			}
+		}
+	}
+
+	var width = 540,
+		height = 500;
+
+	var outerRadius = height / 2 - 90,
+		innerRadius = outerRadius / 3,
+		cornerRadius = 10;
+
+	var pie = d3.layout.pie()
+		.value(function(d){return d.count;})
+		.padAngle(.02);
+
+	var arc = d3.svg.arc()
+		.padRadius(outerRadius)
+		.innerRadius(innerRadius);
+
+	var svg = d3.select("#tab3-pi").append("svg")
+		.attr("width", width)
+		.attr("height", height-150)
+		.append("g")
+		.attr("transform", "translate(" + width / 3 + "," + height / 3 + ")");
+
+
+	var color = d3.scale
+		.ordinal()
+		.range(["#e0664e", "#4ee066", "#664ee0", "#6dc175", "#756dc1", "#c1756d","#dc1756","#56dc17","#1756dc","#ddbbcc","#ccbbdd","#bbccdd"]);
+
+			var legendRectSize = 18;
+			var legendSpacing = 4;
+
+	var legand = svg.selectAll("legand")
+				.data(color.domain())
+				.enter()
+				.append('g')
+				.attr('class', 'legend')
+				.attr('transform', function(d, i)
+				{
+					var height = legendRectSize + legendSpacing;
+					var offset =  height * color.domain().length / 2;
+					var horz = -28 * legendRectSize;
+					var vert = i * height - offset;
+            		return 'translate(' + horz + ',' + vert + ')';
+				});
+
+
+	var barData = [];
+
+	var path = svg.selectAll("path")
+		.data(pie(newData))
+		.enter().append("path")
+		.each(function(d)
+		{
+			var temp = {};
+			temp["ageRange"] = d.data.ageRange;
+			temp["certified"] = piData.certified[d.data.ageRange];
+			temp["uncertified"] = piData.uncertified[d.data.ageRange];
+			barData.push(temp);
+			d.outerRadius = outerRadius - 20;
+
+		})
+		.attr("d", arc)
+		.style("fill", function(d, i) { return color(i); })
+		.on("mouseover", arcTween(outerRadius, 50,barData,sum))
+		.on("mouseout", arcTween(outerRadius - 20, 0,"",sum))
+		.text(function(d, i) {
+
+    return newData[i].ageRange;});
+
+
+
+function arcTween(outerRadius, delay,barData,sum) {
+		return function() {
+
+			d3.select(this).transition().delay(delay).attrTween("d", function(d) {
+				console.log(d.data);
+				var sendToBar = [];
+				for(dat in barData)
+				{
+					if (barData[dat].ageRange == d.data.ageRange)
+						sendToBar = [barData[dat]];
+
+				}
+				value = d.data.count;
+				var percent = Math.round(((100*value )/sum)*100)/100;
+
+				var textHead = "",textBody="";
+
+				if(currDemog == "A"){textHead = "Distribution by Age"; textBody="For Age Range: ";}
+				if(currDemog == "C"){textHead = "Distribution by Country";textBody="For: ";}
+				if(currDemog == "E"){textHead = "Distribution by Education";textBody="For Education Level: ";}
+				if(currDemog == "G"){textHead = "Distribution by Gender";textBody="For Gender: ";}
+
+
+
+				if(delay!=0)
+				{
+					var xPosition = 50;
+					var yPosition = 140;
+
+					var ttp = d3.select("#tooltip2")
+                   .style("left", xPosition + "px")
+                   .style("top", yPosition + "px")
+                   .select("#head");
+
+                   ttp.text("");
+
+                   ttp.append("strong").text(textHead);
+                   ttp.append("p").style("font-face","normal").text(textBody+" "+d.data.ageRange+", "+percent+"% data falls in this category");
+
+
+                   console.log(ttp);
+					d3.select("#tooltip2").classed("hidden", false);
+
+					drawBar(sendToBar);
+
+				}
+				else
+				{
+					d3.select("#tooltip2").classed("hidden", true);
+				}
+
+
+				var i = d3.interpolate(d.outerRadius, outerRadius);
+				return function(t) { d.outerRadius = i(t); return arc(d); };
+
+				});
+
+				};
+				}
+
+    var legend = svg.selectAll('g')
+        .data(color.domain())
+        .enter()
+      .append('g')
+        .attr('class', 'legend');
+
+    legend.append('rect')
+        .attr('x', 180)
+        .attr('y', function(d, i){ return i *  20 -150;})
+        .attr('width', 10)
+        .attr('height', 10)
+        .style('fill',  color)                                   // NEW
+				.style('stroke', color);
+
+	legend.append('text')                                     // NEW
+		.attr('x', legendRectSize + legendSpacing+170)              // NEW
+		.attr('y', function(d, i){ return i *  20 -140;})
+		.text(function(d) {
+				return newData[d]["ageRange"];
+		})
+		.attr("style","font-family:sans-serif;font-size:10px")
+		;
+
+
+}
+
+
+//draw the bar chart
+
+function drawBar(barData)
+{
+if(showCerti){
+	var barCert = [];
+
+	if(typeof (barData[0].certified)!='undefined')
+	{
+		var tempC = {};
+		var tempU = {};
+		tempC['y'] = parseInt(barData[0].certified)*100/parseInt(barData[0].uncertified);
+		tempU['y'] = parseInt(barData[0].uncertified);
+		tempC['x'] = "Certified";
+		tempU['x']= "uncertified";
+		barCert.push(tempC);
+		//barCert.push(tempU);
+	}
+
+	console.log(barCert);
+	d3.select("#tab3-bar").selectAll("svg").remove();
+ 	var vis = d3.select('#tab3-bar').append("svg").attr("width", 400)
+              .attr("height", 310),
+    			WIDTH = 300,HEIGHT = 300,MARGINS = {top: 20,right: 20,bottom: 20,left: 50},
+    			xRange = d3.scale.ordinal().rangeRoundBands([MARGINS.left, WIDTH - MARGINS.right], 0.1).domain(barCert.map(function (d) {
+      				return d.x;
+    			})),
+
+
+	yRange = d3.scale.linear().range([HEIGHT - MARGINS.top, MARGINS.bottom]).domain([0,
+    d3.max(barCert, function (d) {
+      	if(d.y>10)
+        return d.y;
+        else return 10;
+      })
+    ]),
+
+    xAxis = d3.svg.axis()
+    	.scale(xRange)
+    	.tickSize(5)
+      	.tickSubdivide(true),
+
+    yAxis = d3.svg.axis()
+      	.scale(yRange)
+      	.tickSize(5)
+      	.orient("left")
+      	.tickSubdivide(true);
+
+
+  	vis.append('svg:g')
+    	.attr('class', 'x axis')
+    	.attr('transform', 'translate(0,' + (HEIGHT - MARGINS.bottom) + ')')
+    	.call(xAxis);
+
+  	vis.append('svg:g')
+    	.attr('class', 'y axis')
+    	.attr('transform', 'translate(' + (MARGINS.left) + ',0)')
+    	.call(yAxis);
+
+    vis.append("text")
+	         .attr("transform", "rotate(-90)")
+	         .attr("x",-30)
+	         .attr("y", 10)
+	         .attr("dy", ".71em")
+	         .style("text-anchor", "end")
+	         .style("font-size","14px")
+         .text("Percentage of students certified");
+
+  	vis.selectAll('rect')
+    	.data(barCert).enter()
+    	.append('rect')
+    	.attr('x', function (d) {
+      	return xRange(d.x);
+    	})
+    	.attr('y', function (d) {
+      		return yRange(d.y);
+    	})
+    	.attr('width', xRange.rangeBand())
+    	.attr('height', function (d) {
+      		return ((HEIGHT - MARGINS.bottom) - yRange(d.y));
+    	})
+    	.attr('fill', 'grey')
+    	.on('mouseover',function(d){
+      		d3.select(this)
+        	.attr('fill','blue');
+		//tooltip
+							var xPosition = 480;
+					var yPosition = 140;
+
+		var percent = 0;
+		var ttp = d3.select("#tooltip")
+	   .style("left", xPosition + "px")
+	   .style("top", yPosition + "px")
+	   .select("#head");
+
+	   ttp.text("");
+
+	   ttp.append("strong").text("");
+	   ttp.append("p").style("font-face","normal").text(parseInt(barCert[0].y*100)/100+"% candidates in this category got certified");
+console.log(barCert[0]);
+					d3.select("#tooltip").classed("hidden", false);
+
+
+    	})
+    	.on('mouseout',function(d){
+      		d3.select(this)
+        	.attr('fill','grey');
+        	d3.select("#tooltip").classed("hidden", true);
+    	});
+}}
+
+
+//draw the box plot
+function drawBox(boxData)
+{
+if(showGrade){
+	var dataBox;
+
+	var margin = {top:10, right: 50, bottom: 20, left: 50},
+	    width = 900 - margin.left - margin.right,
+	    height = 375 - margin.top - margin.bottom;
+
+	var min = -0.2,
+	    max = 1.2;
+
+	var chart = d3.box()
+	    .whiskers(iqr(0.1))
+	    .width(width)
+	    .height(height);
+
+	var fileName;
+	if(currDemog == "A"){fileName = "data/age_data_BoxPlot.json";}
+	else if(currDemog == "E"){fileName = "data/edu_data_BoxPlot.json";}
+	else if(currDemog == "G"){fileName = "data/gender_data_BoxPlot.json";}
+	else if(currDemog == "C"){fileName = "data/country_data_BoxPlot.json";}
+
+
+	d3.json(fileName, function(error, csv) {
+	console.log(csv)
+
+	  var data = [];
+
+		var csv1;
+  		csv.forEach(function(x)
+  		{
+  			if(x._course == currentCourse)
+  			csv1 = x.box_plot;
+  		});
+
+		console.log(csv1);
+
+		if(currOutcome == "Avg")
+		{
+			for(ii in csv1)
+			{
+				if(ii=="NA")
+				{
+					console.log(csv1[ii]);
+					console.log(distributionOfNonNA,tempTotalStudents,tempNA);
+				}
+
+			}
+		}
+
+		for (ii in csv1)
+		{
+			if(currOutcome == "None" && (ii == "NA" || ii == "Other"))
+			{
+					continue;
+			}
+			//console.log(ii,csv1[ii].all_grades);
+				data[data.length] = [];
+				data[data.length-1][0] = ii;
+				data[data.length-1][1] = csv1[ii].all_grades;
+				console.log(ii,data[data.length-1][1].length)
+				if(data[data.length-1][1].length == 0)
+				{
+					data[data.length-1][1] =[0];
+				}
+		}
+
+		data.sort();
+    	var labels = true;
+		//console.log(data,width,height);
+		var chart = d3.box()
+			.whiskers(iqr(1.5))
+			.height(height)
+			.domain([min, max])
+			.showLabels(labels);
+
+
+		d3.select("#tab3-box").select("svg").remove();
+		var svg = d3.select("#tab3-box").append("svg")
+			.attr("width", width + margin.left + margin.right)
+			.attr("height", height + margin.top + margin.bottom+200)
+			.attr("class", "box")
+			.append("g")
+			.attr("width", width + margin.left + margin.right)
+			.attr("height", height + margin.top + margin.bottom+200)
+			.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+		var x = d3.scale.ordinal()
+			.domain( data.map(function(d) {  return d[0] } ) )
+			.rangeRoundBands([0 , width], 0.7, 0.3);
+		console.log(data);
+		var xAxis = d3.svg.axis()
+			.scale(x)
+			.orient("bottom");
+
+	// the y-axis
+		var y = d3.scale.linear()
+			.domain([min, max])
+			.range([height + margin.top, 0 + margin.top]);
+
+		var yAxis = d3.svg.axis()
+    		.scale(y)
+    		.orient("left");
+
+		svg.selectAll(".box")
+      		.data(data)
+	  		.enter().append("g")
+			.attr("transform", function(d) { return "translate(" +  x(d[0])  + "," + margin.top + ")"; } )
+      		.call(chart.width(x.rangeBand()));
+
+      	svg.append("text")
+	    	.attr("x", (width / 2))
+	        .attr("y", 0 + (margin.top / 2))
+	        .attr("text-anchor", "middle")
+	        .style("font-size", "18px")
+	        .text("Grades");
+
+        svg.append("g")
+		    .attr("class", "x axis")
+		    .attr("transform", "translate(0," + (height  + margin.top + 10) + ") ")
+		    .call(xAxis)
+			.selectAll("text")             // text label for the x axis
+			.attr("x", 9 )
+			.attr("y",  0 )
+			.attr("dy", ".35em")
+			.style("text-anchor", "middle")
+			.attr("transform", "rotate(50)")
+        	.style("text-anchor", "start");
+});
+}
+}
+function iqr(k) {
+  return function(d, i) {
+    var q1 = d.quartiles[0],
+        q3 = d.quartiles[2],
+        iqr = (q3 - q1) * k,
+        i = -1,
+        j = d.length;
+    while (d[++i] < q1 - iqr);
+    while (d[--j] > q3 + iqr);
+    return [i, j];
+  };
+}
+
+
+</script>
+
+
+	</body>
+</html>

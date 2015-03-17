@@ -99,7 +99,7 @@
         .box { display: none; height: 250px; overflow: auto; display: block; position: relative; overflow-x: hidden; }
         #box1:target, #box2:target, #box3:target { display: block; }
 body {
-  font: 10px sans-serif;
+  font: 10px sans-serif;width:1040px;
 }
 
 .axis path,
@@ -235,3 +235,46 @@ div.bar {
 .choiceDiv{border-style: solid; border-color:#333333; width:270px;float: left;height:100px;padding:10px}  
 #tab3-pi{float:left;width:450px}
 #tab3-bar{float:left;width:450px}
+
+.box {
+  font: 10px sans-serif;
+  height:600px;
+}
+
+.box line,
+.box rect,
+.box circle {
+  fill: steelblue;
+  stroke: #000;
+  stroke-width: 1px;
+}
+
+.box .center {
+  stroke-dasharray: 3,3;
+}
+
+.box .outlier {
+  fill: none;
+  stroke: #000;
+}
+
+.axis {
+  font: 12px sans-serif;
+}
+ 
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+ 
+.x.axis path { 
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.whisker {
+  font: 11px sans-serif;
+}
